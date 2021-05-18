@@ -11,9 +11,14 @@ INSERT INTO huerto (id, dimension, calle, pueblo, codigo_postal) VALUES
 -- Dumping data for table tipo_producto
 --
 INSERT INTO tipo_producto (id, nombre, t_crecimiento, T_ideal, H_ideal) VALUES
-(1, 'Tomate', 37, 20, 70),
-(2, 'Patata', 45, 18, 85),
-(3, 'Lechuga', 44, 16, 76);
+(1, 'Tomate', 60, 30, 70),
+(2, 'Patata', 95, 23, 90),
+(3, 'Lechuga', 45, 18, 70),
+(4, 'Cebollas', 120, 23, 75),
+(5, 'Zanahorias',55, 20, 98),
+(6, 'Guisantes',105, 18, 92),
+(7, 'Alubias', 60, 25, 65)
+;
 --
 -- Dumping data for table usuario
 --
@@ -49,3 +54,6 @@ INSERT INTO pedido (id, username) VALUES
 --
 INSERT INTO hacer_pedido (pedido_id, lote_id, tipo_entrega, cantidad) VALUES
 (1,1, 'a domicilio', 500);
+
+
+
