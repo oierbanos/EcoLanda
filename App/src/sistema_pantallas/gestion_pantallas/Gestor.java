@@ -1,5 +1,6 @@
 package sistema_pantallas.gestion_pantallas;
 
+import sistema_pantallas.panel_inicial.PanelPrincipal;
 import sistema_pantallas.pantallas_acciones.*;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ public class Gestor {
 
     public static JScrollPane crearPanelInicio() { return new PanelInicio(); }
 
-    public static JScrollPane crearPanelGestionHuerto() { return new PanelHuerto(); }
+    public static JScrollPane crearPanelGestionHuerto(PanelPrincipal panel) { return new PanelHuerto(panel); }
 
     public static JScrollPane crearPanelGestionStock() {
         return new PanelStock();

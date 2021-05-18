@@ -5,11 +5,13 @@ import styles.ImageFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 /**
  * Panel principal de la aplicación.
  */
-public class PanelPrincipal extends JScrollPane {
+public class PanelPrincipal extends JScrollPane implements PropertyChangeListener {
 
     /**
      * Anchura de la barra que divide la pantalla en dos.
@@ -78,10 +80,9 @@ public class PanelPrincipal extends JScrollPane {
 
         boton.setIcon(icon);                // Añadir Icono
         boton.setBorder(null);              // Quitar borde
-        
 
         switch(funcion) {
-            case "huerto": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionHuerto()));
+            case "huerto": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionHuerto(this)));
                 break;
             case "stock": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionStock()));
                 break;
@@ -95,6 +96,11 @@ public class PanelPrincipal extends JScrollPane {
 
     public void changePanel(JScrollPane panel) {
         mainPanel.setViewportView(panel);
+        this.repaint();
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
         this.repaint();
     }
 }
