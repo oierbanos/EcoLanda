@@ -20,9 +20,7 @@ public class PanelInicio extends JScrollPane {
         this.setBorder(null);
 
         this.getVerticalScrollBar().setUnitIncrement(20);
-
         this.setViewportView(crearPanelVentana());
-        this.setBackground(Color.white);
     }
 
     private Component crearPanelVentana() {

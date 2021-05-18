@@ -35,6 +35,7 @@ public class PanelPrincipal extends JScrollPane {
             crearPanelNavegacion(),
             mainPanel
         );
+        this.mainPanel = mainPanel;
 
         // Cambiar parametros de la barra de división
         panel.setDividerLocation(width/12); // Posición en la pantalla
@@ -77,15 +78,16 @@ public class PanelPrincipal extends JScrollPane {
 
         boton.setIcon(icon);                // Añadir Icono
         boton.setBorder(null);              // Quitar borde
+        
 
         switch(funcion) {
-            case "huerto": boton.addActionListener((e)->{ changePanel(Gestor.crearPanelGestionHuerto()); });
+            case "huerto": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionHuerto()));
                 break;
-            case "stock": boton.addActionListener((e)->{ changePanel(Gestor.crearPanelGestionStock()); });
+            case "stock": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionStock()));
                 break;
-            case "sensor": boton.addActionListener((e)->{ changePanel(Gestor.crearPanelGestionSensores()); });
+            case "sensor": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionSensores()));
                 break;
-            case "usuario": boton.addActionListener((e)->{ changePanel(Gestor.crearPanelGestionUser()); });
+            case "usuario": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionUser()));
                 break;
         }
         return boton;
