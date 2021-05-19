@@ -42,12 +42,20 @@ public class Conexion {
 			conexion = DriverManager.getConnection(URL, USER, PWD);
 			
 			if (conexion != null) {
+<<<<<<< HEAD
 				System.out.println("Conexion establecida correctamente.");
+=======
+				System.out.println("Conexión establecida correctamente.");
+>>>>>>> main
 				estado = true;
 			}
 			
 		} catch (ClassNotFoundException | SQLException  e) {
+<<<<<<< HEAD
 			System.out.println("Error en la conexion " + e);
+=======
+			System.out.println("Error en la conexión " + e);
+>>>>>>> main
 		}
 		
 		return estado;
@@ -59,7 +67,11 @@ public class Conexion {
 		boolean estado = false;
 		conexion = null;
 		if (conexion == null) {
+<<<<<<< HEAD
 			System.out.println("Fin de sesion");
+=======
+			System.out.println("Fin de sesión");
+>>>>>>> main
 			estado = true;
 		}
 		
