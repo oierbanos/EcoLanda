@@ -3,8 +3,8 @@ package vista;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.sql.*;
+import java.sql.PreparedStatement;
+//import java.sql.*;
 
 import conexion.Conexion;
 
@@ -25,13 +25,22 @@ public class Principal {
 	{
 		connection = conexion.getConexion();
 		try {
-			Statement  statement= (Statement) connection.createStatement();
-			ResultSet resultSet = (ResultSet) statement.executeQuery("SELECT * FROM usuario");
+			String sql = "select * from usuario where nombre=? and apellido=?";
+
+			PreparedStatement preparedStatement =
+					connection.prepareStatement(sql);
+			preparedStatement.setString(1, "adam");
+			preparedStatement.setString(2, "hanga");
+
+			ResultSet result = preparedStatement.executeQuery();
+
+			/*Statement  statement= (Statement) connection.createStatement();
+			ResultSet resultSet = (ResultSet) statement.executeQuery("SELECT * FROM usuario");*/
 			
-			while(resultSet.next())
+			while(result.next())
 			{
-				System.out.println(resultSet.getString("username") + " "+
-						resultSet.getString("nombre"));
+				System.out.println(result.getString("username") + " "+
+						result.getString("nombre"));
 			}
 			
 			
