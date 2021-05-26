@@ -50,6 +50,10 @@ GRANT 'Agricultor_Role' TO 'prueba.agricultor'@'127.0.0.1';
 
 GRANT 'Cliente_Role' TO 'prueba.cliente'@'127.0.0.1';
 
+FLUSH PRIVILEGES;
+
 -- Prueba
 CREATE USER IF NOT EXISTS 'pepe'@'127.0.0.1' IDENTIFIED BY '1234';
 GRANT SELECT ON EcoLanda.* TO 'pepe'@'127.0.0.1';
+
+FLUSH PRIVILEGES;
