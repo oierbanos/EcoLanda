@@ -14,4 +14,6 @@ public class FontFactory {
 
     public static final Font LINK_FONT = new Font(Times, Font.PLAIN, 24);
     public static final Font BIG_BUTTON = new Font(Times, Font.PLAIN, 24);
+    public static final Font NORMAL_BUTTON = new Font(Times, Font.PLAIN, 20);
+    public static final Font SMALL_BUTTON = new Font(Times, Font.PLAIN, 14);
 }
