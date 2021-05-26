@@ -1,5 +1,6 @@
 package app_launcher;
 
+import external_conexion.Database_Conector;
 import sistema_pantallas.login.PantallaLogin;
 import sistema_pantallas.login.users.Usuario;
 import sistema_pantallas.pantallas_acciones.PanelInicio;
@@ -29,6 +30,11 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
     PantallaLogin pantallaLogin;
 
     /**
+     * Conexión a la base de datos
+     */
+    Database_Conector conector;
+
+    /**
      * Usuario que ha iniciado sesión.
      */
     Usuario usuario;
@@ -39,6 +45,9 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
     public EcoLanda() {
         // Titulo de la aplicación
         super("EcoLanda");
+
+        // Crear un conector con la base de datos
+        this.conector = new Database_Conector(pantallaLogin);
 
         // Determinar tamaño de la pantalla
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -70,7 +79,7 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
         // Si se cierra la ventana se cierra la app
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        pantallaLogin = new PantallaLogin(this);
+        pantallaLogin = new PantallaLogin(conector, this);
         pantallaLogin.setVisible(true);
     }
 

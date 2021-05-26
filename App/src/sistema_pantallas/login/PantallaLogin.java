@@ -1,5 +1,7 @@
 package sistema_pantallas.login;
 
+import external_conexion.Database_Conector;
+import formaters.CharFormater;
 import styles.ColorFactory;
 import styles.FontFactory;
 import styles.ImageFactory;
@@ -10,6 +12,7 @@ import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeListener;
+import java.util.Arrays;
 
 public class PantallaLogin extends JFrame {
 
@@ -24,12 +27,12 @@ public class PantallaLogin extends JFrame {
     JTextField username;
     JPasswordField password;
 
-    public PantallaLogin(PropertyChangeListener listener) {
+    public PantallaLogin(Database_Conector conector, PropertyChangeListener listener) {
         // Titulo de la aplicación
         super("EcoLanda Login");
 
         // Crear el controlador
-        controlador = new ControladorLogin(listener);
+        controlador = new ControladorLogin(listener, conector);
 
         // Determinar tamaño de la pantalla
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -70,11 +73,16 @@ public class PantallaLogin extends JFrame {
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
 
         JButton boton = crearBoton("Iniciar Sesion", 120);
-        boton.addActionListener( (l)-> controlador.iniciarSesion(this, "Login", null) );
+        boton.addActionListener( (l)-> {
+            controlador.iniciarSesion(this, "Login", username.getText(),
+                                       CharFormater.transformToString(password.getPassword()));
+        } );
         panel.add(crearPanelBoton(boton));
 
         boton = crearBoton("Cancelar", 100);
-        boton.addActionListener( (l)-> controlador.iniciarSesion(this, "Cancelar", null) );
+        boton.addActionListener( (l)-> {
+            controlador.iniciarSesion(this, "Cancelar", "", "");
+        } );
         panel.add(crearPanelBoton(boton));
 
         return panel;
