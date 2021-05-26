@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS lote_producto (
     fecha_recoger       DATE,
     cantidad_plantada   INT         NOT NULL,
     cantidad_recogida   INT,
-    precio_kilo         INT         NOT NULL,
+    precio_kilo         FLOAT         NOT NULL,
     huerto_id           INT         NOT NULL,
     tipo_id             INT         NOT NULL
 );
