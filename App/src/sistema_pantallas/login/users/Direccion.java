@@ -8,11 +8,6 @@ public class Direccion {
     private String calle;
 
     /**
-     * Numero de portal donde se encuentra el huerto.
-     */
-    private int numero;
-
-    /**
      * El piso se utilizará en el caso de que el punto de venta esté en un edificio.
      */
     private String piso;
@@ -25,5 +20,19 @@ public class Direccion {
     /**
      * Provincia donde se encuentra el huerto.
      */
-    private String provincia;
+    private String codigo_postal;
+
+    /**
+     * Direccion de residencia de un usuario.
+     * @param calle Calle de residencia.
+     * @param piso Piso (Numero + Puerta).
+     * @param localidad Localidad de residencia.
+     * @param codigo_postal Codigo postal.
+     */
+    public Direccion(String calle, String piso, String localidad, String codigo_postal) {
+        this.calle = calle;
+        this.piso = piso;
+        this.localidad = localidad;
+        this.codigo_postal = codigo_postal;
+    }
 }

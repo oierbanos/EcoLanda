@@ -2,6 +2,7 @@ package sistema_pantallas.login;
 
 import errors.UserException;
 import external_conexion.Database_Conector;
+import sistema_pantallas.login.users.Direccion;
 import sistema_pantallas.login.users.Usuario;
 
 import javax.swing.*;
@@ -9,8 +10,7 @@ import java.awt.*;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 
 public class ControladorLogin {
 
@@ -33,9 +33,27 @@ public class ControladorLogin {
             if (evt.equals("Login") && database_conector.conectar(username, password)) {
                 ResultSet set = database_conector.makeQuery("SELECT * FROM usuario WHERE username=?",
                                                                 database_conector.createArgumentList(username));
-                System.out.println(set);
+                while (set.next()) {
+                    user = new Usuario(
+                            set.getString("username"),
+                            set.getString("nombre"),
+                            set.getString("apellido"),
+                            set.getString("correo"),
+                            set.getString("telefono"),
+                            new Direccion(
+                                    set.getString("calle"),
+                                    set.getString("piso"),
+                                    set.getString("pueblo"),
+                                    set.getString("codigo_postal")
+                            ),
+                            set.getInt("huerto_id")
+                    );
+                }
+                launchEvent(evt, user);
             }
-            launchEvent(evt, user);
+        }
+        catch (SQLException er) {
+            JOptionPane.showMessageDialog(parent, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         catch (UserException er) {
             JOptionPane.showMessageDialog(parent, er.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);

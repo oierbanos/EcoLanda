@@ -32,7 +32,7 @@ public class Database_Conector {
             return true;
         }
         catch (ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(parentComponent, "No se ha podido conectar a la base de datos",
+            JOptionPane.showMessageDialog(parentComponent, "No se ha podido conectar.",
                     "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         }
