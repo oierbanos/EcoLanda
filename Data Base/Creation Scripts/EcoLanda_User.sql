@@ -42,7 +42,7 @@ GRANT INSERT ON EcoLanda.hacer_pedido TO 'Cliente_Role';
 --
 GRANT 'Admin_Role' TO 'Admin'@'%';
 
-SET DEFAULT ROLE ALL TO 'jon.na'@'%';
+SET DEFAULT ROLE ALL TO 'Admin'@'%';
 
 GRANT 'Agricultor_Role' TO 'adam.hanga'@'%';
 GRANT 'Agricultor_Role' TO 'jon.na'@'%';
@@ -62,3 +62,6 @@ GRANT 'Cliente_Role' TO 'prueba.cliente'@'%';
 SET DEFAULT ROLE ALL TO 'prueba.cliente'@'%';
 
 FLUSH PRIVILEGES;
+
+-- PARA MARIADB:
+-- Cuando se cree un usuario hay que hacer SET ROLE "EL ROL"
