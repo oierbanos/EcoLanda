@@ -6,16 +6,16 @@ CREATE USER IF NOT EXISTS 'Admin'@'%' IDENTIFIED BY 'adpass69';
 --
 -- Usuarios: Agricultores
 --
-CREATE USER IF NOT EXISTS 'adam.hanga'@'127.0.0.1' IDENTIFIED BY 'PassAH21';
-CREATE USER IF NOT EXISTS 'jon.na'@'127.0.0.1' IDENTIFIED BY 'PassJN37';
-CREATE USER IF NOT EXISTS 'mike.james'@'127.0.0.1' IDENTIFIED BY 'PassMJ23';
-CREATE USER IF NOT EXISTS 'tornike.shengelia'@'127.0.0.1' IDENTIFIED BY 'PassTS99';
-CREATE USER IF NOT EXISTS 'prueba.agricultor'@'127.0.0.1' IDENTIFIED BY '1234';
+CREATE USER IF NOT EXISTS 'adam.hanga'@'%' IDENTIFIED BY 'PassAH21';
+CREATE USER IF NOT EXISTS 'jon.na'@'%' IDENTIFIED BY 'PassJN37';
+CREATE USER IF NOT EXISTS 'mike.james'@'%' IDENTIFIED BY 'PassMJ23';
+CREATE USER IF NOT EXISTS 'tornike.shengelia'@'%' IDENTIFIED BY 'PassTS99';
+CREATE USER IF NOT EXISTS 'prueba.agricultor'@'%' IDENTIFIED BY '1234';
 
 --
 -- Usuarios: Clientes
 --
-CREATE USER IF NOT EXISTS 'prueba.cliente'@'127.0.0.1' IDENTIFIED BY '1234';
+CREATE USER IF NOT EXISTS 'prueba.cliente'@'%' IDENTIFIED BY '1234';
 
 --
 -- Roles de los usuarios
@@ -42,18 +42,23 @@ GRANT INSERT ON EcoLanda.hacer_pedido TO 'Cliente_Role';
 --
 GRANT 'Admin_Role' TO 'Admin'@'%';
 
-GRANT 'Agricultor_Role' TO 'adam.hanga'@'127.0.0.1';
-GRANT 'Agricultor_Role' TO 'jon.na'@'127.0.0.1';
-GRANT 'Agricultor_Role' TO 'mike.james'@'127.0.0.1';
-GRANT 'Agricultor_Role' TO 'tornike.shengelia'@'127.0.0.1';
-GRANT 'Agricultor_Role' TO 'prueba.agricultor'@'127.0.0.1';
+SET DEFAULT ROLE ALL TO 'jon.na'@'%';
 
-GRANT 'Cliente_Role' TO 'prueba.cliente'@'127.0.0.1';
+GRANT 'Agricultor_Role' TO 'adam.hanga'@'%';
+GRANT 'Agricultor_Role' TO 'jon.na'@'%';
+GRANT 'Agricultor_Role' TO 'mike.james'@'%';
+GRANT 'Agricultor_Role' TO 'tornike.shengelia'@'%';
+GRANT 'Agricultor_Role' TO 'prueba.agricultor'@'%';
 
-FLUSH PRIVILEGES;
+SET DEFAULT ROLE ALL TO 'jon.na'@'%';
+SET DEFAULT ROLE ALL TO 'adam.hanga'@'%';
+SET DEFAULT ROLE ALL TO 'jon.na'@'%';
+SET DEFAULT ROLE ALL TO 'mike.james'@'%';
+SET DEFAULT ROLE ALL TO 'tornike.shengelia'@'%';
+SET DEFAULT ROLE ALL TO 'prueba.agricultor'@'%';
 
--- Prueba
-CREATE USER IF NOT EXISTS 'pepe'@'127.0.0.1' IDENTIFIED BY '1234';
-GRANT SELECT ON EcoLanda.* TO 'pepe'@'127.0.0.1';
+GRANT 'Cliente_Role' TO 'prueba.cliente'@'%';
+
+SET DEFAULT ROLE ALL TO 'prueba.cliente'@'%';
 
 FLUSH PRIVILEGES;
