@@ -1,41 +1,47 @@
-package external_conexion;
+package external_conexion.database;
+
+import external_conexion.file_management.FileReader;
 
 import javax.swing.*;
+import javax.xml.crypto.Data;
+import java.awt.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Database_Conector {
 
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 
-    private static final String DATABASE_IP = "192.168.43.169";
+    private static String DATABASE_IP;
 
-    private static final String DATABASE_PORT = "3306";
+    private static String DATABASE_PORT;
 
     private static final String DATABASE_NAME = "EcoLanda";
 
-    private JFrame parentComponent;
+    private Component parentComponent;
     private Connection connection = null;
 
-    public Database_Conector(JFrame parentComponent) {
-        this.parentComponent = parentComponent;
+    public Database_Conector() {
+        DATABASE_IP = FileReader.getDatabaseIP();
+        DATABASE_PORT = FileReader.getDatabasePort();
     }
 
-    public boolean conectar(String username, String password) {
+    public void conectar(String username, String password) {
         String url = "jdbc:mysql://" + DATABASE_IP + ":" + DATABASE_PORT + "/" + DATABASE_NAME;
 
         try {
             Class.forName(DRIVER);
             connection = DriverManager.getConnection(url, username, password);
-            return true;
         }
         catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(parentComponent, "No se ha podido conectar.",
                     "Error", JOptionPane.ERROR_MESSAGE);
-            return false;
+            connection = null;
         }
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 
     public void desconectar() {
@@ -57,14 +63,7 @@ public class Database_Conector {
         }
     }
 
-    public void setParentComponent(JFrame parentComponent) {
+    public void setParentComponent(Component parentComponent) {
         this.parentComponent = parentComponent;
-    }
-
-    public List<String> createArgumentList(String...args) {
-        List<String> lista = new ArrayList<>();
-
-        Collections.addAll(lista, args);
-        return lista;
     }
 }

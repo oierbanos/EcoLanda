@@ -1,7 +1,8 @@
 package sistema_pantallas.login;
 
 import errors.UserException;
-import external_conexion.Database_Conector;
+import external_conexion.database.Query_Selector;
+import external_conexion.database.Query_Types;
 import sistema_pantallas.login.users.Direccion;
 import sistema_pantallas.login.users.Usuario;
 
@@ -15,24 +16,26 @@ import java.sql.SQLException;
 public class ControladorLogin {
 
     PropertyChangeSupport conector;
-    Database_Conector database_conector;
+    Query_Selector conexion_database;
 
-    public ControladorLogin(PropertyChangeListener listener, Database_Conector database_conector) {
+    public ControladorLogin(PropertyChangeListener listener, Query_Selector database_conector) {
         // Crear una conexion con el panel principal
         conector = new PropertyChangeSupport(this);
         conector.addPropertyChangeListener(listener);
 
         // Iniciar el conector
-        this.database_conector = database_conector;
+        this.conexion_database = database_conector;
     }
 
     public void iniciarSesion(Component parent, String evt, String username, String password) {
         try {
+            conexion_database.setConexion(username, password, parent);
             Usuario user = null;
 
-            if (evt.equals("Login") && database_conector.conectar(username, password)) {
-                ResultSet set = database_conector.makeQuery("SELECT * FROM usuario WHERE username=?",
-                                                                database_conector.createArgumentList(username));
+            if (evt.equals("Login") && conexion_database.checkConexion()) {
+                ResultSet set = conexion_database.select_query(
+                        Query_Types.GET_USER, conexion_database.createArgumentList(username)
+                );
                 while (set.next()) {
                     user = new Usuario(
                             set.getString("username"),

@@ -1,7 +1,6 @@
 package sistema_pantallas.pantallas_acciones;
 
 import sistema_pantallas.pantallas_acciones.componentes.*;
-import sistema_pantallas.pantallas_acciones.dibujables.Rectangulo;
 import styles.ColorFactory;
 
 import javax.swing.*;
@@ -11,15 +10,12 @@ import java.awt.event.MouseListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PanelHuerto extends JScrollPane {
 
     Point start = null;
     Point end = null;
 
-    List<Rectangulo> listaDibujables = new ArrayList<>();
     PropertyChangeSupport conector;
 
     JPanel mainPanel;
@@ -77,7 +73,6 @@ public class PanelHuerto extends JScrollPane {
             public void mouseReleased(MouseEvent e) {
                 if (start != null) {
                     end = new Point(e.getX(), e.getY());
-                    listaDibujables.add(new Rectangulo(start, end));
                     conector.firePropertyChange("Repaint", "none", "new");
                 }
             }
@@ -102,9 +97,5 @@ public class PanelHuerto extends JScrollPane {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        for (Rectangulo d : listaDibujables) {
-            d.draw(g);
-        }
     }
 }
