@@ -1,6 +1,8 @@
 package sistema_pantallas.panel_inicial;
 
+import external_conexion.database.Query_Selector;
 import sistema_pantallas.gestion_pantallas.Gestor;
+import sistema_pantallas.login.users.Usuario;
 import styles.ImageFactory;
 
 import javax.swing.*;
@@ -23,12 +25,18 @@ public class PanelPrincipal extends JScrollPane implements PropertyChangeListene
      */
     JScrollPane mainPanel;
 
+    JFrame parentComponent;
+
+    Usuario user;
+
+    Query_Selector conector;
+
     /**
      * Panel que contendra el menu de navegación y que servirá para contener las distinitas funciones
      * de la aplicación.
      * @param width Ancho de la pantalla.
      */
-    public PanelPrincipal(JScrollPane mainPanel, int width) {
+    public PanelPrincipal(JFrame parentComponent, JScrollPane mainPanel, Usuario user, Query_Selector conector, int width) {
         super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         JSplitPane panel = new JSplitPane(
@@ -37,7 +45,10 @@ public class PanelPrincipal extends JScrollPane implements PropertyChangeListene
             crearPanelNavegacion(),
             mainPanel
         );
+        this.parentComponent = parentComponent;
         this.mainPanel = mainPanel;
+        this.conector = conector;
+        this.user = user;
 
         // Cambiar parametros de la barra de división
         panel.setDividerLocation(width/12); // Posición en la pantalla
@@ -84,7 +95,7 @@ public class PanelPrincipal extends JScrollPane implements PropertyChangeListene
         switch(funcion) {
             case "huerto": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionHuerto(this)));
                 break;
-            case "stock": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionStock()));
+            case "stock": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionStock(parentComponent, user, conector)));
                 break;
             case "sensor": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionSensores()));
                 break;

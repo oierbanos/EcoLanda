@@ -1,4 +1,4 @@
-USE ecolanda;
+USE EcoLanda;
 --
 -- Dumping data for table HUERTO
 --
@@ -22,11 +22,11 @@ INSERT INTO tipo_producto (id, nombre, t_crecimiento, T_ideal, H_ideal) VALUES
 --
 -- Dumping data for table usuario
 --
-INSERT INTO usuario (USERNAME, NOMBRE, APELLIDO, CORREO, TELEFONO, PISO, CALLE, PUEBLO, CODIGO_POSTAL, TIPO) values
-('jon.na', 'jon', 'navaridas', 'jon.na@gmail.com', '666666666', '3','Fueros', 'Bilbo', '01300', 'cliente'),
-('tornike.shengelia', 'tornike', 'shengelia', 'tornike.shengelia@bkn.eus','232323232', '6', 'Salburua','Vitoria-Gasteiz', '01000', 'cliente'),
-('mike.james', 'mike', 'james', 'mike.james@bkn.eus','333333333', '3','Nagusia' ,'Argomaniz', '01002', 'cliente'),
-('adam.hanga', 'adam', 'hanga', 'adam.hanga@bkn.eus','888888888', '8','Garaia', 'Luko', '01003', 'cliente');
+INSERT INTO usuario (USERNAME, NOMBRE, APELLIDO, CORREO, TELEFONO, PISO, CALLE, PUEBLO, CODIGO_POSTAL, TIPO, HUERTO_ID) values
+('jon.na', 'jon', 'navaridas', 'jon.na@gmail.com', '666666666', '3','Fueros', 'Bilbo', '01300', 'cliente', 1),
+('tornike.shengelia', 'tornike', 'shengelia', 'tornike.shengelia@bkn.eus','232323232', '6', 'Salburua','Vitoria-Gasteiz', '01000', 'cliente', 2),
+('mike.james', 'mike', 'james', 'mike.james@bkn.eus','333333333', '3','Nagusia' ,'Argomaniz', '01002', 'cliente', 3),
+('adam.hanga', 'adam', 'hanga', 'adam.hanga@bkn.eus','888888888', '8','Garaia', 'Luko', '01003', 'cliente', 4);
 --
 -- Dumping data for table tipo_medicion
 --
@@ -54,6 +54,18 @@ INSERT INTO pedido (id, username) VALUES
 --
 INSERT INTO hacer_pedido (pedido_id, lote_id, tipo_entrega, cantidad) VALUES
 (1,1, 'a domicilio', 500);
-
-
-
+--
+-- Dumping data for agricultor jon.na
+--
+INSERT INTO lote_producto (id, fecha_plantar, fecha_recoger, cantidad_plantada, cantidad_recogida, precio_kilo, huerto_id, tipo_id)
+VALUES (2, '2021-05-22 11:08:57', CURDATE(), '30', '500', null, 1, 1),
+       (3, '2021-05-12 15:08:57', CURDATE(), '21', '377', null, 1, 3),
+       (4, '2021-03-20 11:08:57', CURDATE(), '6.5', '58', null, 1, 5),
+       (5, '2021-05-9 10:00:00', CURDATE(), '45', '125', null, 1, 2),
+       (6, '2020-05-30 15:08:32', CURDATE(), '66', '432', null, 1, 3),
+       (7, '2020-12-23 11:08:57', CURDATE(), '52.7', '670', null, 1, 4),
+       (8, '2019-07-2 8:08:57', CURDATE(), '21.2', '223', null, 1, 5),
+       (9, '2019-10-13 11:08:57', CURDATE(), '22', '99', null, 1, 7),
+       (10, '2020-05-22 11:08:57', CURDATE(), '35', '50', null, 1, 5),
+       (11, '2021-11-11 11:08:57', CURDATE(), '21', '678', null, 1, 6),
+       (12, '2021-09-7 11:08:57', CURDATE(), '43', '81', null, 1, 4);

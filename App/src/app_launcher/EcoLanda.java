@@ -19,6 +19,8 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
     /** Alto por defecto de la pantalla */
     public final static int DEFAULT_HEIGHT = 600;
 
+    int width, height;
+
     /**
      * Panel donde se mostrará el contenido de la aplicación.
      */
@@ -51,8 +53,8 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
 
         // Determinar tamaño de la pantalla
         Toolkit toolkit = Toolkit.getDefaultToolkit();
-        int width = (int) toolkit.getScreenSize().getWidth();       // Ancho
-        int height = (int) toolkit.getScreenSize().getHeight();     // Alto
+        width = (int) toolkit.getScreenSize().getWidth();       // Ancho
+        height = (int) toolkit.getScreenSize().getHeight();     // Alto
 
         // Poner icono a la aplicación
         this.setIconImage(ImageFactory.createImage(ImageFactory.MAIN_ICON));
@@ -63,12 +65,6 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
 
         // Crear panel de inicio
         mainSubpanel = new PanelInicio();
-
-        // Crear contenido
-        PanelPrincipal panelPrincipal = new PanelPrincipal(mainSubpanel, width);
-
-        this.setContentPane(panelPrincipal);
-        this.setJMenuBar(new BarraMenu(panelPrincipal));
 
         // Cambiar el color del fondo
         this.setBackground(Color.white);
@@ -83,12 +79,21 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
         pantallaLogin.setVisible(true);
     }
 
+    public void crearPanel() {
+        // Crear contenido
+        PanelPrincipal panelPrincipal = new PanelPrincipal(this, mainSubpanel, usuario, conector, width);
+
+        this.setContentPane(panelPrincipal);
+        this.setJMenuBar(new BarraMenu(panelPrincipal));
+    }
+
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         usuario = (Usuario) evt.getNewValue();
         pantallaLogin.dispose();    // Quitar la pantalla de login.
 
         if (usuario != null || evt.getPropertyName().equals("Login")) {
+            this.crearPanel();
             this.setVisible(true);      // Mostrar la pantalla principal.
         }
         else {

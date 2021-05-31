@@ -1,5 +1,8 @@
 package sistema_pantallas.gestion_pantallas;
 
+import external_conexion.database.Query_Selector;
+import sistema_pantallas.gestion_pantallas.stock.GestorStock;
+import sistema_pantallas.login.users.Usuario;
 import sistema_pantallas.panel_inicial.PanelPrincipal;
 import sistema_pantallas.pantallas_acciones.*;
 
@@ -16,8 +19,8 @@ public class Gestor {
 
     public static JScrollPane crearPanelGestionHuerto(PanelPrincipal panel) { return new PanelHuerto(panel); }
 
-    public static JScrollPane crearPanelGestionStock() {
-        return new PanelStock();
+    public static JScrollPane crearPanelGestionStock(JFrame parent, Usuario user, Query_Selector conector) {
+        return new PanelStock(parent, user.getHuerto_id(), conector);
     }
 
     public static JScrollPane crearPanelGestionSensores() {
