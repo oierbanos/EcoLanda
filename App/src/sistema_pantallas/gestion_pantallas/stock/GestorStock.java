@@ -21,8 +21,8 @@ public class GestorStock {
         this.conector = conector;
     }
 
-    public void addStock(JFrame parentComponent) {
-        AddStock dialog = new AddStock(parentComponent, "Añadir Stock", true);
+    public void addStock(JFrame parentComponent, GestorStock gestorStock) {
+        AddStock dialog = new AddStock(parentComponent, "Añadir Stock", true, gestorStock);
         dialog.setVisible(true);
     }
 
@@ -30,6 +30,16 @@ public class GestorStock {
         ResultSet set = conector.select_query(Query_Types.GET_STOCK,
                                                 conector.createArgumentList(String.valueOf(huerto_id)));
         return crearListaLote(set);
+    }
+
+    public String[] getTipos() throws SQLException {
+        List<String> values = new ArrayList<>();
+        ResultSet set = conector.select_query(Query_Types.GET_TIPOS, null);
+
+        while (set.next()) {
+            values.add(set.getString("nombre"));
+        }
+        return  values.toArray(new String[0]);
     }
 
     public String[] getListaTipos(List<LoteProducto> productos) {

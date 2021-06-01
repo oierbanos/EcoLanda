@@ -28,38 +28,41 @@ public class ControladorLogin {
     }
 
     public void iniciarSesion(Component parent, String evt, String username, String password) {
-        try {
-            conexion_database.setConexion(username, password, parent);
-            Usuario user = null;
+        if (evt.equals("Login")) {
+            try {
+                conexion_database.setConexion(username, password, parent);
+                Usuario user = null;
 
-            if (evt.equals("Login") && conexion_database.checkConexion()) {
-                ResultSet set = conexion_database.select_query(
-                        Query_Types.GET_USER, conexion_database.createArgumentList(username)
-                );
-                while (set.next()) {
-                    user = new Usuario(
-                            set.getString("username"),
-                            set.getString("nombre"),
-                            set.getString("apellido"),
-                            set.getString("correo"),
-                            set.getString("telefono"),
-                            new Direccion(
-                                    set.getString("calle"),
-                                    set.getString("piso"),
-                                    set.getString("pueblo"),
-                                    set.getString("codigo_postal")
-                            ),
-                            set.getInt("huerto_id")
+                if (conexion_database.checkConexion()) {
+                    ResultSet set = conexion_database.select_query(
+                            Query_Types.GET_USER, conexion_database.createArgumentList(username)
                     );
+                    while (set.next()) {
+                        user = new Usuario(
+                                set.getString("username"),
+                                set.getString("nombre"),
+                                set.getString("apellido"),
+                                set.getString("correo"),
+                                set.getString("telefono"),
+                                new Direccion(
+                                        set.getString("calle"),
+                                        set.getString("piso"),
+                                        set.getString("pueblo"),
+                                        set.getString("codigo_postal")
+                                ),
+                                set.getInt("huerto_id")
+                        );
+                    }
+                    launchEvent(evt, user);
                 }
-                launchEvent(evt, user);
+            } catch (SQLException er) {
+                JOptionPane.showMessageDialog(parent, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (UserException er) {
+                JOptionPane.showMessageDialog(parent, er.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        catch (SQLException er) {
-            JOptionPane.showMessageDialog(parent, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        catch (UserException er) {
-            JOptionPane.showMessageDialog(parent, er.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        else {
+            try { launchEvent(evt, null); } catch (UserException e) { e.printStackTrace(); }
         }
     }
 

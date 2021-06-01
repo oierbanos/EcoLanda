@@ -52,8 +52,10 @@ public class Database_Conector {
         try {
             PreparedStatement ps = connection.prepareStatement(query);
 
-            for (int i = 0; i < values.size(); i++) {
-                ps.setString(i+1, values.get(i));
+            if (values != null) {
+                for (int i = 0; i < values.size(); i++) {
+                    ps.setString(i+1, values.get(i));
+                }
             }
             return ps.executeQuery();
         }

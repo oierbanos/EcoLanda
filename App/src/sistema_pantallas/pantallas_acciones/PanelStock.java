@@ -151,7 +151,7 @@ public class PanelStock  extends JScrollPane {
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
 
         JButton boton = new JButton("Añadir Stock");
-        boton.addActionListener(e -> gestor.addStock(parentComponent));
+        boton.addActionListener(e -> gestor.addStock(parentComponent, gestor));
 
         boton.setFont(FontFactory.NORMAL_BUTTON);
         boton.setPreferredSize(new Dimension(200, 40));

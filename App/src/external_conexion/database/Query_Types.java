@@ -10,6 +10,8 @@ public enum Query_Types {
                     "JOIN huerto h on l.huerto_id = h.id\n" +
               "WHERE h.id = ?"),
 
+    GET_TIPOS("SELECT nombre FROM tipo_producto"),
+
     FILTRO_TIPO("SELECT l.cantidad_plantada, l.cantidad_recogida, l.fecha_plantar, l.fecha_recoger, tp.nombre\n" +
                 "FROM lote_producto l\n" +
                     "JOIN tipo_producto tp on l.tipo_id = tp.id\n" +

@@ -34,6 +34,10 @@ public class ImageFactory {
     public static final String IMAGEN_SENSOR = "Media/Icons/sensor.png";
     public static final String IMAGEN_USUARIO = "Media/Icons/usuario.png";
 
+    /** Imagenes sensores **/
+    public static final String IMAGEN_TEMPERATURA = "Media/Img/termometro.png";
+    public static final String IMAGEN_HUMEDAD = "Media/Img/humedad.png";
+
     /**
      * Generar un ImageIcon a partir de una ruta.
      * @param route Ruta de la imagen.
