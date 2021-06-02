@@ -1,11 +1,5 @@
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 import com.fazecast.jSerialComm.SerialPort;
@@ -15,7 +9,6 @@ import com.fazecast.jSerialComm.SerialPortEvent;
 public class ComunicacionPlaca  implements SerialPortDataListener {
 	
 	SerialPort serialport;
-	BufferedReader buffer;
 	List<Byte> bufferDeMensaje;
    	
 	public ComunicacionPlaca (SerialPort serialport) {
@@ -23,47 +16,24 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
 		bufferDeMensaje= new ArrayList<>();
 	}
 
-	@Override
-	public void serialEvent(SerialPortEvent event) {
-		if(event.getEventType() != SerialPort.LISTENING_EVENT_DATA_AVAILABLE) return;
-		else {
-			byte[] bufferDeLectura = new byte[1];
-			//bufferDeLectura[0]=0;
-			serialport.readBytes(bufferDeLectura, bufferDeLectura.length);
-			if((bufferDeLectura[0])==10) {
-				transformToString(bufferDeMensaje);
-			}
-			else{
-				bufferDeMensaje.add(bufferDeLectura[0]);
-		 	}
-		}
-	}
-
 	private void transformToString(List<Byte> bufferDeMensaje) {
+		StringBuilder mensajeEnviar = new StringBuilder();
+		for (Byte aByte : bufferDeMensaje) {
 
-		String mensajeEnviar = "";
-		for(int i=0; i<bufferDeMensaje.size();i++){
-
-			int c = Integer.valueOf(bufferDeMensaje.get(i).toString());
-			Character valor = Character.valueOf((char) c);
-			mensajeEnviar+=valor;
+			int c = Integer.parseInt(aByte.toString());
+			char valor = (char) c;
+			mensajeEnviar.append(valor);
 		}
 		System.out.println(mensajeEnviar);
 		bufferDeMensaje.clear();
 	}
 
-	@Override
-   	public int getListeningEvents(){
-   		return SerialPort.LISTENING_EVENT_DATA_AVAILABLE;
-   	}
-
 	public void clasificarMensaje() {
-
 		Scanner teclado = new Scanner(System.in);
 		String s = teclado.nextLine();
 
-		while(!s.toLowerCase().equals("salir")){
-			if(s.equals("t") || s.equals("p")) enviarMensaje(s);
+		while (!s.equalsIgnoreCase("salir")) {
+			if (s.equals("t") || s.equals("p")) enviarMensaje(s);
 			s = teclado.nextLine();
 		}
 		System.exit(-1);
@@ -73,4 +43,20 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
 		byte[] bytes = s.getBytes();
 		serialport.writeBytes(bytes,1);
 	}
+
+	@Override
+	public void serialEvent(SerialPortEvent event) {
+		if (event.getEventType() == SerialPort.LISTENING_EVENT_DATA_AVAILABLE) {
+			byte[] bufferDeLectura = new byte[1];
+			serialport.readBytes(bufferDeLectura, bufferDeLectura.length);
+
+			if ((bufferDeLectura[0]) == 10) transformToString(bufferDeMensaje);
+			else bufferDeMensaje.add(bufferDeLectura[0]);
+		}
+	}
+
+	@Override
+   	public int getListeningEvents(){
+   		return SerialPort.LISTENING_EVENT_DATA_AVAILABLE;
+   	}
 }

@@ -1,25 +1,26 @@
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-
 import com.fazecast.jSerialComm.SerialPort;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.util.Scanner;
+
 public class Conexion {
-	
-    //El nombre del puerto puede variar dependiendo de la entrada USB del PC inicializamos y declaramos variables	
-	private static int RATIO_SERIAL = 9600;
-	
+
+    //El nombre del puerto puede variar dependiendo de la entrada USB del PC inicializamos y declaramos variables
+	private static final int RATIO_SERIAL = 9600;
+
+	ComunicacionPlaca comunicacion;
     SerialPort serialport;
-    ComunicacionPlaca comunicacion;
-    Scanner teclado;
     Integer puerto;
   	
   	public void conectar() {
-		SerialPort puertosDisponibles[] = SerialPort.getCommPorts();
+		SerialPort[] puertosDisponibles = SerialPort.getCommPorts();
 
 		try {
 			if (puertosDisponibles.length == 0) {
 				System.out.println("No hay ningún puerto COM disponible.");
-			} else {
+			}
+			else {
 				getPuerto(puertosDisponibles);
 				if (puerto < puertosDisponibles.length && puerto >= 0) {
 					try {
@@ -32,27 +33,12 @@ public class Conexion {
 				}
 			}
 			comunicacion.clasificarMensaje();
-		}catch (Exception exc){
-			System.out.println("Cerrando aplicacion...");
-			System.exit(-1);
+		} catch (Exception exc){
+			System.out.println("No se ha podido conectar con la placa.");
 		}
   	}
   	
   	public void getPuerto(SerialPort[] puertosDisponibles) {
-
-		teclado = new Scanner(System.in);
-
-		//EN CASO DE USAR MAS DE UN COM "PROLIFIC" HABRIA QUE COMENTAR LO DE ABAJO Y DESCOMENTAR ESTO
-
-		/*System.out.println("Puertos disponibles:");
-		for (int i = 0; i < puertosDisponibles.length; i++) {
-			System.out.println("[" + i + "]  " + puertosDisponibles[i].getSystemPortName()
-					+ " : " + puertosDisponibles[i].getDescriptivePortName());
-		}
-
-		System.out.println("Que puerto desea utilizar?");
-		puerto = teclado.nextInt();*/
-
 		for (int i = 0; i < puertosDisponibles.length; i++) {
 			if (puertosDisponibles[i].getDescriptivePortName().toLowerCase().contains("prolific")) {
 				System.out.println("Conectando a...\n" + puertosDisponibles[i].getSystemPortName()
@@ -62,7 +48,7 @@ public class Conexion {
 			}
 		}
 	}
-  	
+
     private void configurarPuerto() {
  		serialport.setComPortTimeouts(SerialPort.TIMEOUT_NONBLOCKING, 5000, 0);
 		serialport.setBaudRate(RATIO_SERIAL);
@@ -74,8 +60,34 @@ public class Conexion {
 		serialport.addDataListener(comunicacion);
 	}
 
-	public static void main(String[] args) {
-    	 Conexion conexion = new Conexion();
-    	 conexion.conectar();
+	public static class KeyboardListener extends Thread {
+
+		@Override
+		public void run() {
+			Scanner teclado = new Scanner(System.in);
+
+			do {
+				if (teclado.nextLine().equalsIgnoreCase("quit")) {
+					System.out.println("Cerrando servidor...");
+					teclado.close();
+
+					System.exit(0);
+				}
+			} while (true);
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+		ServerSocket server = new ServerSocket(8888);
+		Conexion conexion = new Conexion();
+
+		conexion.conectar();
+		new KeyboardListener().start();
+
+		//noinspection InfiniteLoopStatement
+		while (true) {
+			new EchoThread(server.accept()).start();
+			System.out.println("Conexión realizada.");
+		}
 	}
 }
