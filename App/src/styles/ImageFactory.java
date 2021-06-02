@@ -37,6 +37,7 @@ public class ImageFactory {
     /** Imagenes sensores **/
     public static final String IMAGEN_TEMPERATURA = "Media/Img/termometro.png";
     public static final String IMAGEN_HUMEDAD = "Media/Img/humedad.png";
+    public static final String IMAGEN_BUSCAR = "Media/Img/buscar.png";
 
     /**
      * Generar un ImageIcon a partir de una ruta.

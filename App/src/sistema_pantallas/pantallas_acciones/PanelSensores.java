@@ -1,9 +1,13 @@
 package sistema_pantallas.pantallas_acciones;
 
+import Elementos.DatoSensor;
+import external_conexion.database.Query_Selector;
+import external_conexion.sockets.ClientSocket;
+import sistema_pantallas.gestion_pantallas.sensores.GestorSensor;
 import sistema_pantallas.tablas.HeaderRenderer;
 import sistema_pantallas.tablas.ModeloColumnas;
-import sistema_pantallas.tablas.tabla_stock.ModeloTablaStock;
-import sistema_pantallas.tablas.tabla_stock.RendererStock;
+import sistema_pantallas.tablas.tabla_sensor.ModeloTablaSensores;
+import sistema_pantallas.tablas.tabla_sensor.RendererSensor;
 import styles.ColorFactory;
 import styles.FontFactory;
 import styles.ImageFactory;
@@ -13,21 +17,32 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.List;
+import java.util.Objects;
 
-public class PanelSensores  extends JScrollPane {
+public class PanelSensores  extends JScrollPane implements PropertyChangeListener {
 
     JFrame parentComponent;
+    GestorSensor gestor;
 
     JTable tabla;
-    ModeloTablaStock modeloTabla;
+    ModeloTablaSensores modeloTabla;
 
     JComboBox<String> sensor, valor, hora;
+    JLabel temperatura, humedad;
+    List<DatoSensor> listaDatos;
 
-    public PanelSensores(JFrame parentComponent, int huerto_id) {
+    public PanelSensores(JFrame parentComponent, Query_Selector conector, int huerto_id) {
         super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.getVerticalScrollBar().setUnitIncrement(20);
 
         this.parentComponent = parentComponent;
+        this.gestor = new GestorSensor(huerto_id, conector);
+        this.listaDatos = gestor.getDataFromDatabase();
+        this.modeloTabla = new ModeloTablaSensores(listaDatos);
+        new ClientSocket("Actualizar datos", parentComponent, this).start();
 
         this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         this.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -59,24 +74,33 @@ public class PanelSensores  extends JScrollPane {
         JPanel panel = new JPanel(new GridLayout(1, 4));
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
 
-        sensor = new JComboBox<>();
+        sensor = new JComboBox<>(gestor.getListaTipos(listaDatos));
         sensor.setFont(FontFactory.BASE_FONT);
-        // sensor.setSelectedIndex(0);
+        sensor.setSelectedIndex(0);
         panel.add(sensor);
 
-        valor = new JComboBox<>();
+        valor = new JComboBox<>(gestor.getRangoCantidad(listaDatos));
         valor.setFont(FontFactory.BASE_FONT);
-        // valor.setSelectedIndex(0);
+        valor.setSelectedIndex(0);
         panel.add(valor);
 
-        hora = new JComboBox<>();
+        hora = new JComboBox<>(gestor.getHora(listaDatos));
         hora.setFont(FontFactory.BASE_FONT);
-        // hora.setSelectedIndex(0);
+        hora.setSelectedIndex(0);
         panel.add(hora);
 
-        sensor.addActionListener(e -> System.out.println("a"));
-        valor.addActionListener(e -> System.out.println("b"));
-        hora.addActionListener(e -> System.out.println("c"));
+        sensor.addActionListener(e -> {
+            modeloTabla.setLista(gestor.filtrar("tipo", (String) Objects.requireNonNull(sensor.getSelectedItem())));
+            tabla.repaint();
+        });
+        valor.addActionListener(e -> {
+            modeloTabla.setLista(gestor.filtrar("cantidad", (String) Objects.requireNonNull(valor.getSelectedItem())));
+            tabla.repaint();
+        });
+        hora.addActionListener(e -> {
+            modeloTabla.setLista(gestor.filtrar("hora", (String) Objects.requireNonNull(hora.getSelectedItem())));
+            tabla.repaint();
+        });
 
         return panel;
     }
@@ -87,8 +111,8 @@ public class PanelSensores  extends JScrollPane {
 
         tabla = new JTable(modeloTabla,
                 new ModeloColumnas(
-                        new RendererStock(),
-                        new String[]{ "Tipo", "Cantidad Plantada", "Cantidad Recogida", "Fecha Plantado", "Fecha Recogido" }
+                        new RendererSensor(),
+                        new String[]{ "Tipo", "Valor", "Fecha" }
                 ));
         tabla.getTableHeader().setDefaultRenderer(new HeaderRenderer(tabla));
 
@@ -98,10 +122,8 @@ public class PanelSensores  extends JScrollPane {
             public void mouseClicked(MouseEvent e) {
                 switch (tabla.columnAtPoint(e.getPoint())) {
                     case 0: modeloTabla.filtrar("tipo"); break;
-                    case 1: modeloTabla.filtrar("cantidadP"); break;
-                    case 2: modeloTabla.filtrar("cantidadR"); break;
-                    case 3: modeloTabla.filtrar("fechaP"); break;
-                    case 4: modeloTabla.filtrar("fechaR"); break;
+                    case 1: modeloTabla.filtrar("valor"); break;
+                    case 2: modeloTabla.filtrar("hora"); break;
                 }
                 tabla.repaint();
             }
@@ -137,6 +159,13 @@ public class PanelSensores  extends JScrollPane {
         label.setFont(FontFactory.NORMAL_BUTTON);
         panel.add(field, BorderLayout.CENTER);
 
+        JButton boton = new JButton(ImageFactory.createImageIcon(ImageFactory.IMAGEN_BUSCAR));
+        boton.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        boton.setPreferredSize(new Dimension(30, 30));
+        boton.setBackground(Color.white);
+        boton.addActionListener(e -> System.out.println("Filtrar"));
+        panel.add(boton, BorderLayout.EAST);
+
         return panel;
     }
 
@@ -146,12 +175,14 @@ public class PanelSensores  extends JScrollPane {
 
         JPanel pSensor = new JPanel(new BorderLayout());
         pSensor.add(crearLabel(ImageFactory.createImageIcon(ImageFactory.IMAGEN_TEMPERATURA)), BorderLayout.CENTER);
-        pSensor.add(crearLabel("21ºC"), BorderLayout.SOUTH);
+        temperatura = crearLabel(gestor.getValorSensorMasReciente("temp") + "ºC");
+        pSensor.add(temperatura, BorderLayout.SOUTH);
         panel.add(pSensor);
 
         pSensor = new JPanel(new BorderLayout());
         pSensor.add(crearLabel(ImageFactory.createImageIcon(ImageFactory.IMAGEN_HUMEDAD)), BorderLayout.CENTER);
-        pSensor.add(crearLabel("56%"), BorderLayout.SOUTH);
+        humedad = crearLabel(gestor.getValorSensorMasReciente("hum") + "%");
+        pSensor.add(humedad, BorderLayout.SOUTH);
         panel.add(pSensor);
 
         return panel;
@@ -161,7 +192,7 @@ public class PanelSensores  extends JScrollPane {
         return new JLabel(icon);
     }
 
-    private Component crearLabel(String title) {
+    private JLabel crearLabel(String title) {
         JLabel label = new JLabel(title);
 
         label.setFont(FontFactory.NORMAL_BUTTON);
@@ -188,5 +219,15 @@ public class PanelSensores  extends JScrollPane {
         panel.add(boton);
 
         return panel;
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        String[] values = ((String) evt.getNewValue()).split("/");
+
+        if (values.length == 2) {
+            temperatura.setText(values[0] + "ºC");
+            humedad.setText(values[1] + "%");
+        }
     }
 }

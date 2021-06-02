@@ -97,7 +97,7 @@ public class PanelPrincipal extends JScrollPane implements PropertyChangeListene
                 break;
             case "stock": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionStock(parentComponent, user, conector)));
                 break;
-            case "sensor": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionSensores(parentComponent, user)));
+            case "sensor": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionSensores(parentComponent, user, conector)));
                 break;
             case "usuario": boton.addActionListener((e)->changePanel(Gestor.crearPanelGestionUser()));
                 break;

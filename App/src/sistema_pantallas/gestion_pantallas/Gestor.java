@@ -23,8 +23,8 @@ public class Gestor {
         return new PanelStock(parent, user.getHuerto_id(), conector);
     }
 
-    public static JScrollPane crearPanelGestionSensores(JFrame parent, Usuario user) {
-        return new PanelSensores(parent, user.getHuerto_id());
+    public static JScrollPane crearPanelGestionSensores(JFrame parent, Usuario user, Query_Selector conector) {
+        return new PanelSensores(parent, conector, user.getHuerto_id());
     }
 
     public static JScrollPane crearPanelGestionUser() {

@@ -1,0 +1,4 @@
+Database_ip=127.0.0.1
+Database_port=3306
+Socket_ip=127.0.0.1
+Socket_port=8888

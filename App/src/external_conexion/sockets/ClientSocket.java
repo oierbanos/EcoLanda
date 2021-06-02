@@ -38,9 +38,7 @@ public class ClientSocket extends Thread {
         PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
 
         writer.println(mensaje);
-        String respuesta = reader.readLine();
-
-        conector.firePropertyChange(mensaje, null, respuesta);
+        conector.firePropertyChange(mensaje, null, reader.readLine());
     }
 
     @Override

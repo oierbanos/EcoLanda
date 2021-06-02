@@ -31,7 +31,7 @@ INSERT INTO usuario (USERNAME, NOMBRE, APELLIDO, CORREO, TELEFONO, PISO, CALLE, 
 -- Dumping data for table tipo_medicion
 --
 INSERT INTO tipo_medicion (id, nombre, unidad_medicion) VALUES
-(1, 'temperatura', 'ºC'),
+(1, 'Temperatura', 'ºC'),
 (2, 'Humedad', '%');
 --
 -- Dumping data for table medicion
