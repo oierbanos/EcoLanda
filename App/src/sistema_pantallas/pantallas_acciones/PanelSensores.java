@@ -42,7 +42,7 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
         this.gestor = new GestorSensor(huerto_id, conector);
         this.listaDatos = gestor.getDataFromDatabase();
         this.modeloTabla = new ModeloTablaSensores(listaDatos);
-        new ClientSocket("Actualizar datos", parentComponent, this).start();
+        new ClientSocket("Actualizar sensores", parentComponent, this).start();
 
         this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         this.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -211,7 +211,7 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
 
         JButton boton = new JButton("Actualizar Valores");
-        boton.addActionListener(e -> System.out.println("Holi"));
+        boton.addActionListener(e -> new ClientSocket("Actualizar sensores", parentComponent, this).start());
 
         boton.setFont(FontFactory.NORMAL_BUTTON);
         boton.setPreferredSize(new Dimension(200, 40));
@@ -223,11 +223,16 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        String[] values = ((String) evt.getNewValue()).split("/");
+        String value = ((String) evt.getNewValue());
+        System.out.println(value);
 
-        if (values.length == 2) {
-            temperatura.setText(values[0] + "ºC");
-            humedad.setText(values[1] + "%");
+        if (value != null) {
+            String[] values = value.split("/");
+
+            if (values.length == 2) {
+                temperatura.setText(values[0] + "ºC");
+                humedad.setText(values[1] + "%");
+            }
         }
     }
 }

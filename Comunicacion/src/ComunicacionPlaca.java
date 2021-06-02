@@ -1,22 +1,32 @@
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Random;
 
 import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 import com.fazecast.jSerialComm.SerialPortEvent;
 
-public class ComunicacionPlaca  implements SerialPortDataListener {
-	
+public class ComunicacionPlaca  implements SerialPortDataListener, PropertyChangeListener {
+
+	boolean mensajeCompleto;
 	SerialPort serialport;
 	List<Byte> bufferDeMensaje;
+	PropertyChangeSupport conector;
    	
 	public ComunicacionPlaca (SerialPort serialport) {
 		this.serialport = serialport;
-		bufferDeMensaje= new ArrayList<>();
+		this.bufferDeMensaje = new ArrayList<>();
+		this.conector = new PropertyChangeSupport(this);
 	}
 
-	private void transformToString(List<Byte> bufferDeMensaje) {
+	public void setPropertyChangeListener(PropertyChangeListener listener) {
+		conector.addPropertyChangeListener(listener);
+	}
+
+	private String transformToString(List<Byte> bufferDeMensaje) {
 		StringBuilder mensajeEnviar = new StringBuilder();
 		for (Byte aByte : bufferDeMensaje) {
 
@@ -24,23 +34,14 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
 			char valor = (char) c;
 			mensajeEnviar.append(valor);
 		}
-		System.out.println(mensajeEnviar);
 		bufferDeMensaje.clear();
-	}
-
-	public void clasificarMensaje() {
-		Scanner teclado = new Scanner(System.in);
-		String s = teclado.nextLine();
-
-		while (!s.equalsIgnoreCase("salir")) {
-			if (s.equals("t") || s.equals("p")) enviarMensaje(s);
-			s = teclado.nextLine();
-		}
-		System.exit(-1);
+		return String.valueOf(mensajeEnviar);
 	}
 
 	private void enviarMensaje(String s) {
 		byte[] bytes = s.getBytes();
+
+		mensajeCompleto = false;
 		serialport.writeBytes(bytes,1);
 	}
 
@@ -50,7 +51,7 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
 			byte[] bufferDeLectura = new byte[1];
 			serialport.readBytes(bufferDeLectura, bufferDeLectura.length);
 
-			if ((bufferDeLectura[0]) == 10) transformToString(bufferDeMensaje);
+			if ((bufferDeLectura[0]) == 10) mensajeCompleto = true;
 			else bufferDeMensaje.add(bufferDeLectura[0]);
 		}
 	}
@@ -59,4 +60,20 @@ public class ComunicacionPlaca  implements SerialPortDataListener {
    	public int getListeningEvents(){
    		return SerialPort.LISTENING_EVENT_DATA_AVAILABLE;
    	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		String instruction = evt.getPropertyName();
+		String mensaje = "";
+
+		if (instruction.equals("Actualizar")) {
+			enviarMensaje("t");
+			while (!mensajeCompleto) ;
+			mensaje += transformToString(bufferDeMensaje).substring(1);
+
+			mensaje += "/" + (new Random().nextInt(100) - 1);
+
+			conector.firePropertyChange(instruction, null, mensaje);
+		}
+	}
 }

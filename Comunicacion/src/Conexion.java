@@ -2,6 +2,7 @@ import com.fazecast.jSerialComm.SerialPort;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Scanner;
 
 public class Conexion {
@@ -32,7 +33,6 @@ public class Conexion {
 					}
 				}
 			}
-			comunicacion.clasificarMensaje();
 		} catch (Exception exc){
 			System.out.println("No se ha podido conectar con la placa.");
 		}
@@ -67,11 +67,11 @@ public class Conexion {
 			Scanner teclado = new Scanner(System.in);
 
 			do {
-				if (teclado.nextLine().equalsIgnoreCase("quit")) {
+				if (teclado.nextLine().equalsIgnoreCase("salir")) {
 					System.out.println("Cerrando servidor...");
 					teclado.close();
 
-					System.exit(0);
+					System.exit(-1);
 				}
 			} while (true);
 		}
@@ -86,8 +86,10 @@ public class Conexion {
 
 		//noinspection InfiniteLoopStatement
 		while (true) {
-			new EchoThread(server.accept()).start();
+			SocketThread thread = new SocketThread(server.accept(), conexion.comunicacion);
+			conexion.comunicacion.setPropertyChangeListener(thread);
 			System.out.println("Conexión realizada.");
+			thread.start();
 		}
 	}
 }
