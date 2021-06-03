@@ -24,7 +24,7 @@ typedef enum
 
 void initGPIO(void);
 void initGpioPinMode(GPIO_TypeDef *, uint32_t pin, GPIOMode_Type mode);
-void enablePA0interruptOnExti0WhenRising(void);
+void enablePA0interrupt(void);
 void GPIO_WritePin(GPIO_TypeDef* gpiox, uint32_t pinN, uint32_t state);
 
 GPIO_PinState getGpioPinValue(GPIO_TypeDef * gpio, uint16_t pin);

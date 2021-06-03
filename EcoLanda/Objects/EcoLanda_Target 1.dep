@@ -1,5 +1,5 @@
 Dependencies for Project 'EcoLanda', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x60B8C091)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x60B8F75E)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (D:\Program files\Profesional\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
 I (D:\Program files\Profesional\ARM\ARMCC\include\stdio.h)(0x588BE5B4)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5F6B3446)
@@ -10,10 +10,10 @@ I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsi
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5F6B3446)
 I (D:\Program files\Profesional\ARM\ARMCC\include\string.h)(0x588BE5B4)
-I (ourCom.h)(0x60B79557)
-I (ourGpio.h)(0x60B79D0B)
-I (hx711.h)(0x60B79CB6)
-F (.\ourGpioC.c)(0x60B79C4B)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\ourgpioc.o --omf_browse .\objects\ourgpioc.crf --depend .\objects\ourgpioc.d)
+I (ourCom.h)(0x60B8E0C6)
+I (ourGpio.h)(0x60B8DD61)
+I (hx711.h)(0x60B8EE58)
+F (.\ourGpioC.c)(0x60B8DD42)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\ourgpioc.o --omf_browse .\objects\ourgpioc.crf --depend .\objects\ourgpioc.d)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5F6B3446)
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
@@ -22,10 +22,10 @@ I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsi
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5F6B3446)
-I (ourGpio.h)(0x60B79D0B)
-I (ourCom.h)(0x60B79557)
-F (.\ourGpio.h)(0x60B79D0B)()
-F (.\ourComC.c)(0x60B4D4CF)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\ourcomc.o --omf_browse .\objects\ourcomc.crf --depend .\objects\ourcomc.d)
+I (ourGpio.h)(0x60B8DD61)
+I (ourCom.h)(0x60B8E0C6)
+F (.\ourGpio.h)(0x60B8DD61)()
+F (.\ourComC.c)(0x60B8DF43)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\ourcomc.o --omf_browse .\objects\ourcomc.crf --depend .\objects\ourcomc.d)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5F6B3446)
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
@@ -34,10 +34,10 @@ I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsi
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5F6B3446)
-I (ourCom.h)(0x60B79557)
-F (.\ourCom.h)(0x60B79557)()
+I (ourCom.h)(0x60B8E0C6)
+F (.\ourCom.h)(0x60B8E0C6)()
 F (.\hx711.c)(0x60B795C6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\hx711.o --omf_browse .\objects\hx711.crf --depend .\objects\hx711.d)
-I (hx711.h)(0x60B79CB6)
+I (hx711.h)(0x60B8EE58)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5F6B3446)
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\ARMCC\include\stdint.h)(0x588BE5B4)
@@ -46,8 +46,8 @@ I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsi
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8F3392)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5F6B3446)
-I (ourGpio.h)(0x60B79D0B)
-F (.\hx711.h)(0x60B79CB6)()
+I (ourGpio.h)(0x60B8DD61)
+F (.\hx711.h)(0x60B8EE58)()
 F (RTE\Device\STM32F407ZGTx\startup_stm32f407xx.s)(0x5F6B3446)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"--pd "__UVISION_VERSION SETA 524" --pd "_RTE_ SETA 1" --pd "STM32F407xx SETA 1"--list .\listings\startup_stm32f407xx.lst --xref -o .\objects\startup_stm32f407xx.o --depend .\objects\startup_stm32f407xx.d)
 F (RTE\Device\STM32F407ZGTx\system_stm32f4xx.c)(0x5F6B3446)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-I"D:\Program files\Profesional\ARM\PACK\ARM\CMSIS\5.7.0\CMSIS\Core\Include"-I"D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F407xx-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
 I (D:\Program files\Profesional\ARM\PACK\Keil\STM32F4xx_DFP\2.15.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5F6B3446)

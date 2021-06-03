@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="008930d0-12d2-4dde-9662-7dd99ebd467d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelSensores.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelSensores.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Database_Conector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/Database_Conector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Query_Selector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/Query_Selector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Query_Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/Query_Types.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/sockets/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/sockets/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/sensores/GestorSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/sensores/GestorSensor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelSensores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelSensores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/ComunicacionPlaca.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/ComunicacionPlaca.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/Conexion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/src/ComunicacionPlaca.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/src/ComunicacionPlaca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/src/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/src/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/src/SocketThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/src/SocketThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/EcoLanda.uvguix.osfjo" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/EcoLanda.uvguix.osfjo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EcoLanda/EcoLanda.uvoptx" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/EcoLanda.uvoptx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EcoLanda/JLinkLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/JLinkLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EcoLanda/Listings/EcoLanda.map" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Listings/EcoLanda.map" afterDir="false" />
@@ -22,9 +11,22 @@
       <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/EcoLanda.build_log.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/EcoLanda.build_log.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/EcoLanda.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/EcoLanda.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/EcoLanda_Target 1.dep" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/EcoLanda_Target 1.dep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/hx711.crf" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/hx711.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/hx711.o" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/hx711.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/main.crf" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/main.crf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/ourcomc.crf" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/ourcomc.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/ourcomc.o" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/ourcomc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/ourgpioc.crf" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/ourgpioc.crf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/ourgpioc.o" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/ourgpioc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/system_stm32f4xx.o" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/system_stm32f4xx.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/system_stm32f4xx_1.o" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/Objects/system_stm32f4xx_1.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/hx711.h" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/hx711.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../EcoLanda/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/ourCom.h" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/ourCom.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/ourComC.c" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/ourComC.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/ourGpio.h" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/ourGpio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EcoLanda/ourGpioC.c" beforeDir="false" afterPath="$PROJECT_DIR$/../EcoLanda/ourGpioC.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +50,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
@@ -60,19 +65,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -93,6 +85,9 @@
       <updated>1622646010706</updated>
       <workItem from="1622646013543" duration="3616000" />
       <workItem from="1622719863869" duration="6668000" />
+      <workItem from="1622732775558" duration="1348000" />
+      <workItem from="1622734991722" duration="68000" />
+      <workItem from="1622735163857" duration="293000" />
     </task>
     <servers />
   </component>

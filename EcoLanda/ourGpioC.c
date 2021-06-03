@@ -59,7 +59,7 @@ uint32_t GPIO_ReadPin(GPIO_TypeDef * gpio, uint32_t pin)
 	return (gpio->IDR & (0x01<<pin));
 }
 
-void enablePA0interruptOnExti0WhenRising(void)
+void enablePA0interrupt(void)
 {
      //SYSCFG gaitu
 	uint32_t *APB2ENR=(uint32_t*)(0x40023800+0x44);
