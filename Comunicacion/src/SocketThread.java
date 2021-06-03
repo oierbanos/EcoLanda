@@ -22,8 +22,7 @@ public class SocketThread extends Thread implements PropertyChangeListener {
     @Override
     public void run() {
         try {
-            InputStream inp = socket.getInputStream();
-            BufferedReader in = new BufferedReader(new InputStreamReader(inp));
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             try {
                 String line = in.readLine();
@@ -44,12 +43,14 @@ public class SocketThread extends Thread implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         try {
-            OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
-            String value = (String) evt.getNewValue();
+            if (!socket.isClosed()) {
+                OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
+                String value = (String) evt.getNewValue();
 
-            out.write(value);
-            out.flush();
-            socket.close();
+                out.write(value);
+                out.flush();
+                socket.close();
+            }
         }
         catch (IOException e) {
             e.printStackTrace();

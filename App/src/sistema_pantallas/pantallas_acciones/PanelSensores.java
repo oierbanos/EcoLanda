@@ -42,7 +42,6 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
         this.gestor = new GestorSensor(huerto_id, conector);
         this.listaDatos = gestor.getDataFromDatabase();
         this.modeloTabla = new ModeloTablaSensores(listaDatos);
-        new ClientSocket("Actualizar sensores", parentComponent, this).start();
 
         this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
         this.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -185,6 +184,8 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
         pSensor.add(humedad, BorderLayout.SOUTH);
         panel.add(pSensor);
 
+        new ClientSocket("Actualizar sensores", parentComponent, this, false).start();
+
         return panel;
     }
 
@@ -211,7 +212,7 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
 
         JButton boton = new JButton("Actualizar Valores");
-        boton.addActionListener(e -> new ClientSocket("Actualizar sensores", parentComponent, this).start());
+        boton.addActionListener(e -> new ClientSocket("Actualizar sensores", parentComponent, this, true).start());
 
         boton.setFont(FontFactory.NORMAL_BUTTON);
         boton.setPreferredSize(new Dimension(200, 40));
@@ -224,14 +225,18 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         String value = ((String) evt.getNewValue());
-        System.out.println(value);
 
         if (value != null) {
             String[] values = value.split("/");
 
             if (values.length == 2) {
-                temperatura.setText(values[0] + "ºC");
+                temperatura.setText(values[0].substring(0, values[0].length() - 1) + "ºC");
                 humedad.setText(values[1] + "%");
+
+                if ((boolean) evt.getOldValue()) {
+                    gestor.addDataToDatabase(values[0].substring(0, values[0].length() - 1), "temp");
+                    gestor.addDataToDatabase(values[1], "hum");
+                }
             }
         }
     }

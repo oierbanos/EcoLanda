@@ -11,7 +11,7 @@ import com.fazecast.jSerialComm.SerialPortEvent;
 
 public class ComunicacionPlaca  implements SerialPortDataListener, PropertyChangeListener {
 
-	boolean mensajeCompleto;
+	volatile boolean mensajeCompleto;
 	SerialPort serialport;
 	List<Byte> bufferDeMensaje;
 	PropertyChangeSupport conector;
@@ -31,8 +31,7 @@ public class ComunicacionPlaca  implements SerialPortDataListener, PropertyChang
 		for (Byte aByte : bufferDeMensaje) {
 
 			int c = Integer.parseInt(aByte.toString());
-			char valor = (char) c;
-			mensajeEnviar.append(valor);
+			mensajeEnviar.append((char) c);
 		}
 		bufferDeMensaje.clear();
 		return String.valueOf(mensajeEnviar);
@@ -51,6 +50,7 @@ public class ComunicacionPlaca  implements SerialPortDataListener, PropertyChang
 			byte[] bufferDeLectura = new byte[1];
 			serialport.readBytes(bufferDeLectura, bufferDeLectura.length);
 
+			// Si no es '\n' añadir al bufferDeMensaje
 			if ((bufferDeLectura[0]) == 10) mensajeCompleto = true;
 			else bufferDeMensaje.add(bufferDeLectura[0]);
 		}
@@ -68,11 +68,10 @@ public class ComunicacionPlaca  implements SerialPortDataListener, PropertyChang
 
 		if (instruction.equals("Actualizar")) {
 			enviarMensaje("t");
-			while (!mensajeCompleto) ;
+			while (!mensajeCompleto);
 			mensaje += transformToString(bufferDeMensaje).substring(1);
 
 			mensaje += "/" + (new Random().nextInt(100) - 1);
-
 			conector.firePropertyChange(instruction, null, mensaje);
 		}
 	}

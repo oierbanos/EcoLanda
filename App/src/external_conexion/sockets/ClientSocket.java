@@ -18,13 +18,15 @@ public class ClientSocket extends Thread {
     private static String PUERTO;
     private static String SERVER_IP;
 
+    private boolean add;
     private String mensaje;
     private Component parentComponent;
     private PropertyChangeSupport conector;
 
-    public ClientSocket(String mensaje, Component parentComponent, PropertyChangeListener listener) {
+    public ClientSocket(String mensaje, Component parentComponent, PropertyChangeListener listener, boolean addToDatabase) {
         this.mensaje = mensaje;
         this.parentComponent = parentComponent;
+        this.add = addToDatabase;
 
         this.conector = new PropertyChangeSupport(this);
         this.conector.addPropertyChangeListener(listener);
@@ -38,13 +40,15 @@ public class ClientSocket extends Thread {
         PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
 
         writer.println(mensaje);
-        conector.firePropertyChange(mensaje, null, reader.readLine());
+        conector.firePropertyChange(mensaje, add, reader.readLine());
     }
 
     @Override
     public void run() {
         try {
-            getInformation(new Socket(SERVER_IP, Integer.parseInt(PUERTO)));
+            Socket socket = new Socket(SERVER_IP, Integer.parseInt(PUERTO));
+            getInformation(socket);
+            socket.close();
         }
         catch (UnknownHostException e) {
             JOptionPane.showMessageDialog(parentComponent, "No se nada del host " + SERVER_IP,

@@ -72,7 +72,9 @@ public enum Query_Types {
             "    JOIN tipo_medicion tm on m.tipo_id = tm.id\n" +
             "WHERE m.huerto_id = ? && tm.nombre = ?\n" +
             "ORDER BY m.valor DESC\n" +
-            "LIMIT 1");
+            "LIMIT 1"),
+
+    HIGHEST_ID_MEDICION("SELECT id FROM medicion WHERE huerto_id = ? ORDER BY id DESC LIMIT 1");
 
     private final String query;
 

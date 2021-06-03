@@ -81,14 +81,13 @@ public class Conexion {
 		ServerSocket server = new ServerSocket(8888);
 		Conexion conexion = new Conexion();
 
-		conexion.conectar();
+		conexion.conectar(); // Conectar Serial
 		new KeyboardListener().start();
 
 		//noinspection InfiniteLoopStatement
 		while (true) {
 			SocketThread thread = new SocketThread(server.accept(), conexion.comunicacion);
 			conexion.comunicacion.setPropertyChangeListener(thread);
-			System.out.println("Conexión realizada.");
 			thread.start();
 		}
 	}

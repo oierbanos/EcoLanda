@@ -56,9 +56,9 @@ int main(void)
 		
 		
 	//BALANZA
-    read = HX711_Read(&sensor);
-		value = sensor.offset - read;
-    toGrams(value);	
+    // read = HX711_Read(&sensor);
+		// value = sensor.offset - read;
+    // toGrams(value);	
 	}
 }
 

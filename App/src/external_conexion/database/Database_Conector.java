@@ -1,5 +1,6 @@
 package external_conexion.database;
 
+import com.mysql.cj.xdevapi.PreparableStatement;
 import external_conexion.file_management.FileReader;
 
 import javax.swing.*;
@@ -62,6 +63,20 @@ public class Database_Conector {
         catch (SQLException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public void insert(String query, List<String> values) {
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            if (values != null) {
+                for (int i = 0; i < values.size(); i++) {
+                    ps.setString(i+1, values.get(i));
+                }
+            }
+            ps.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

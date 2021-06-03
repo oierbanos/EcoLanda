@@ -148,4 +148,8 @@ public class GestorSensor {
             return "";
         }
     }
+
+    public void addDataToDatabase(String type, String value) {
+        conector.insertData(type, value, huerto_id);
+    }
 }
