@@ -38,7 +38,7 @@ public class PanelInicio extends JScrollPane {
             @Override
             public void mouseClicked(MouseEvent arg0) {
                 try {
-                    Desktop.getDesktop().browse(new URI("https://labur.eus/dibina"));
+                    Desktop.getDesktop().browse(new URI("https://github.com/oierbanos/EcoLanda"));
                 } catch (IOException | URISyntaxException e) {
                     e.printStackTrace();
                 }

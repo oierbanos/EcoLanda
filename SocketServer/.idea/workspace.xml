@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb54e9b9-1e05-4d6d-a54e-a367a5bd8c10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../App/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../App/Media/Img/humedad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../App/Media/Img/termometro.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SocketServer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SocketServer/EchoThread.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SocketServer/Main$KeyboardListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/SocketServer/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EchoThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/external_conexion/database/Database_Conector.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/external_conexion/database/Database_Conector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/external_conexion/database/Query_Types.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/external_conexion/database/Query_Types.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/gestion_pantallas/Gestor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/gestion_pantallas/Gestor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/gestion_pantallas/stock/AddStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/gestion_pantallas/stock/AddStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/gestion_pantallas/stock/GestorStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/gestion_pantallas/stock/GestorStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/login/ControladorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/login/ControladorLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/panel_inicial/PanelPrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/panel_inicial/PanelPrincipal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/pantallas_acciones/PanelSensores.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/pantallas_acciones/PanelSensores.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/pantallas_acciones/PanelStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/sistema_pantallas/pantallas_acciones/PanelStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/out/production/App/styles/ImageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../App/out/production/App/styles/ImageFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/external_conexion/database/Database_Conector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/external_conexion/database/Database_Conector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/external_conexion/database/Query_Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/external_conexion/database/Query_Types.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/external_conexion/sockets/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/external_conexion/sockets/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/sistema_pantallas/gestion_pantallas/Gestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/sistema_pantallas/gestion_pantallas/Gestor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/sistema_pantallas/gestion_pantallas/stock/AddStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/sistema_pantallas/gestion_pantallas/stock/AddStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/sistema_pantallas/gestion_pantallas/stock/GestorStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/sistema_pantallas/gestion_pantallas/stock/GestorStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/sistema_pantallas/login/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/sistema_pantallas/login/ControladorLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/sistema_pantallas/panel_inicial/PanelPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/sistema_pantallas/panel_inicial/PanelPrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/sistema_pantallas/pantallas_acciones/PanelSensores.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/sistema_pantallas/pantallas_acciones/PanelSensores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/sistema_pantallas/pantallas_acciones/PanelStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/sistema_pantallas/pantallas_acciones/PanelStock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../App/src/styles/ImageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../App/src/styles/ImageFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,17 +42,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -117,5 +73,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
