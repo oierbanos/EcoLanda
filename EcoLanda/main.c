@@ -15,10 +15,9 @@ float toGrams (int v);
 
 // ENVIAR DATOS
 char BUFFER[MAX_BUFFER];
-char c[1];
 
 // CONTADOR SYSTICK
-int cont_temp=0;
+int contTemp = 0;
 
 // DATOS SENSORES
 volatile float peso, temp;
@@ -48,11 +47,11 @@ int main(void)
 
 	while(1) {
 		if (solicitudPeso) {
-			// Si se ha solicitado el peso, enviarlo mediante serial.
+			// Si se ha solicitado el peso en USART6_IRQHandler, enviarlo mediante serial.
 			enviarPeso(sensor);
 		}
 		if (solicitudTemperatura) {
-			// Si se ha solicitado la temperatura enviarla mediante serial.
+			// Si se ha solicitado la temperatura en USART6_IRQHandler, enviarla mediante serial.
 			enviarTemperatura();
 		}
 	}
@@ -66,6 +65,7 @@ int main(void)
 *
 * Formato de envio: 't' + valor_temperatura + '\n'
 */
+
 void enviarTemperatura (void){
 	// SENSOR DE TEMPERATURA
 	// Comenzar conversion en el ADC.
@@ -81,12 +81,9 @@ void enviarTemperatura (void){
 	// Limpiar el buffer (poner todo a 0).
 	memset(BUFFER,'0',sizeof(BUFFER));
 	
-	c[0]='t';	// Enviar una 't' para especificar que se va a enviar temperatura.
-	sprintf(BUFFER,"%.2f", temp);	// Añadir el valor de la temperatura al buffer.
-	
-	printMsgToUSART6(c, sizeof(c));							// Enviar 't'.
+	sprintf(BUFFER,"t%.2f\n", temp);	// Añadir al buffer la cabecera 't' el balor y \n.
+
 	printMsgToUSART6(BUFFER, sizeof(BUFFER));		// Enviar valor temperatura.
-	printMsgToUSART6("\n",1);										// Enviar '\n' -> Fin de mensaje.
 
 	// Indicar que la solicitud ha sido cubierta.
 	solicitudTemperatura = 0;
@@ -112,12 +109,8 @@ void enviarPeso (HX711 sensor){
 	// Limpiar el buffer
 	memset(BUFFER,'0',sizeof(BUFFER));
 	
-	c[0]='p';	// Enviar una 'p' para especificar que se va a enviar peso.
-	sprintf(BUFFER,"%.2f", peso);	// Añadir el valor de la temperatura al buffer.
-
-	printMsgToUSART6(c,sizeof(c));
+	sprintf(BUFFER,"p%.2f\n", peso);	// Añadir al buffer la cabecera 't' el balor y \n.
 	printMsgToUSART6(BUFFER,sizeof(BUFFER)); 
-	printMsgToUSART6("\n",1); 
 	
 	solicitudPeso = 0;
 }
@@ -145,37 +138,66 @@ float toGrams (int v) {
 void initSysTick(uint32_t ms) {
   if(ms)
   {
-    SysTick->LOAD  = 16000000U/1000*ms - 1U; // kontagailuak 0 tik hemen definitutako baliora kontatuko du 16Mhz/1000 mseg
-	  SysTick->VAL   = 0U; //garbitu current value
-    SysTick->CTRL  |= 0x00000003; // tickint y enable
+    SysTick->LOAD  = 16000000U/1000*ms - 1U; // El contador, contara desde 0 hasta el valor definido 16Mhz/1000 mseg
+	  SysTick->VAL   = 0U; // Limpiar valor actual
+    SysTick->CTRL  |= 0x00000003; // Activar tickint y enable 
   }
 }
 
+/*
+* Function: SysTick_Handler
+* ---------------------
+* Configurar la interrupción que produce el systick.
+*
+* Se produce la excepcion cada 8s y como se desea enviar la temperatura cada 2 horas (7200s), se cuenta mediante la varibale
+* contTemp 900 veces, puesto que 8*900=7200. Cuando el contador sea 899, solicitudTemperatura se pone a 1 y se resetea el contador.
+* 
+*/
 void SysTick_Handler(void) 
 {
-	if(cont_temp<900) cont_temp++; 
-	if(cont_temp==899){ 
+	if(contTemp < 900) contTemp++;
+	if(contTemp == 899){ 
 		solicitudTemperatura = 1;		
+		contTemp = 0;
 	}
 }
 
+/*
+* Function: EXTI0_IRQHandler
+* -----------------
+* Se configura la excepcion que produce EXTI0 al pulsar WKUP .
+*
+* Se pone el PR (Pending register) a 1 para que salga de la interrupcion y no se quede en un bucle.
+* solicitudPeso se pone a 1, y a continuacion en el while del main se comprueba y entra en la funcion para  
+* devolver el peso mediante enviarPeso.
+* 
+*/
 void EXTI0_IRQHandler(void)
 {
   EXTI->PR |= 0x01;
 	solicitudPeso = 1;
 }
 
+/*
+* Function: USART6_IRQHandler
+* ---------------------
+* Al recibir un valor mediante serial por el puerto USART6, entra en esta función.
+*
+* Si ese valor es una t, se cambia el valor de solicitudTemperatura a 1, y a continuacion se procede 
+* a devolver la temperatura mediante la funcion enviarTemperatura. Lo mismo pero con el peso si el valor es una p. 
+* si es distinto, no hace nada.
+*/
 void USART6_IRQHandler(void)
 {	
-	if(USART6->SR & USART_SR_RXNE)
+	if(USART6->SR & USART_SR_RXNE) //Status Register SR: (TXE, RXNE, CTS, PE...)  # RXNE: El bit se pone a 1 cuando los datos han llegado al registro DR y se pueden leer. (Read data register not empty)
 	{
-		char tmp = USART6->DR;
-		if(tmp==116) //si es 't' 
+		char tmp = USART6->DR; //Se guarda en la variable tmp el valor recibido que se encuentra en DR (Data Register[8:0] bits)
+		if(tmp == 116) //si es 't' 
 		{
 			solicitudTemperatura = 1;
 			
 		}
-		else if(tmp==112) //si es p
+		else if(tmp==112) //si es 'p'
 		{
 			solicitudPeso = 1;
 		}

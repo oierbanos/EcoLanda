@@ -58,7 +58,13 @@ void USART6_ConfGPIO(void) {
 		GPIOG->AFR[1] |= (ALTERNATE_USART6 << (AF_USART6_RX * AF_SIZE));
 }
 
-//Configures USART3 or 6 with the desired speed, 8 data bits, 1 stop bit, no parity and in TX and RX mode.
+/*
+* Function: USART_Conf
+* ---------------------
+* Se configura la velocidad de transmision.
+*
+* Configures USART3 or 6 with the desired speed, 8 data bits, 1 stop bit, no parity and in TX and RX mode.
+*/
 void USART_Conf(USART_TypeDef *usart, uint16_t speed) {
 	switch(speed) {
 		case 1200: usart->BRR = 0x3415; break; //1200 bps @PCLK 16Mhz
@@ -69,19 +75,35 @@ void USART_Conf(USART_TypeDef *usart, uint16_t speed) {
 	usart->CR1 = USART_CR1_UE | USART_CR1_TE | USART_CR1_RE;
 }
 
-//*Configure usart to generate Interrupts on RX events.
+
+/*
+* Function: USART6_ConfIRQ_RX
+* ---------------------
+* Se configura USART para que genere interrupciones en eventos RX.
+*
+*/
 void USART6_ConfIRQ_RX(void) {
 		USART6->CR1 |= USART_CR1_RXNEIE;
 		NVIC_EnableIRQ(USART6_IRQn);
 }
 
+/*
+* Function: printMsgToUSART6
+* ---------------------
+* Se envia el mensaje a traves de serial
+*
+* Se almacena el primer valor del mensaje en DR (Data Register) y cuando TXE se pone a 1 se puede enviar.
+* Se va shifteando el valor a enviar hasta que se llega al final del mensaje, es decir, hasta que el contador 
+* sea igual a la longitud del mesnaje.
+*
+*/
 void printMsgToUSART6(char *msg, int length)
 {
 	int i=0;
 	do
 	{
-		USART6->DR = (uint32_t) *msg;
-		while(!(USART6->SR & USART_SR_TC)); //wait for TXE=1, data transferred
+		USART6->DR = (uint32_t) *msg; // Almacenar el primer valor del mensaje 
+		while(!(USART6->SR & USART_SR_TC)); // Esperar a que TXE=1, y se transfiere el mensaje
 		msg++;
 		i++;
 	}while(i<length);
