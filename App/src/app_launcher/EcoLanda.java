@@ -19,7 +19,14 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
     /** Alto por defecto de la pantalla */
     public final static int DEFAULT_HEIGHT = 600;
 
-    int width, height;
+    /**
+     * Ancho de pantalla.
+     */
+    int width;
+    /**
+     * Alto de pantalla.
+     */
+    int height;
 
     /**
      * Panel donde se mostrará el contenido de la aplicación.
@@ -79,14 +86,22 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
         pantallaLogin.setVisible(true);
     }
 
+    /**
+     * Crear el panel que contendra la aplicacion.
+     */
     public void crearPanel() {
         // Crear contenido
         PanelPrincipal panelPrincipal = new PanelPrincipal(this, mainSubpanel, usuario, conector, width);
 
-        this.setContentPane(panelPrincipal);
-        this.setJMenuBar(new BarraMenu(panelPrincipal));
+        this.setContentPane(panelPrincipal);                // Panel
+        this.setJMenuBar(new BarraMenu(panelPrincipal));    // Menu
     }
 
+    /**
+     * Evento que gestiona si se ha iniciado sesión con un usuario y de ser
+     * asi arranca la aplicación.
+     * @param evt Evento que ha ocurrido.
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         usuario = (Usuario) evt.getNewValue();
@@ -108,6 +123,7 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
+        // Lanzador de la aplicacion.
         EcoLanda app = new EcoLanda();
     }
 }

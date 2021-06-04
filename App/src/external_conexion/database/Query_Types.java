@@ -76,12 +76,19 @@ public enum Query_Types {
 
     HIGHEST_ID_MEDICION("SELECT id FROM medicion WHERE huerto_id = ? ORDER BY id DESC LIMIT 1");
 
+    /**
+     * Query a realizar.
+     */
     private final String query;
 
     Query_Types(String query) {
         this.query = query;
     }
 
+    /**
+     * Recibir el texto que forma la query.
+     * @return La query.
+     */
     public String GetQuery() {
         return this.query;
     }

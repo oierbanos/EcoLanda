@@ -15,12 +15,30 @@ import java.net.UnknownHostException;
 
 public class ClientSocket extends Thread {
 
+    /**
+     * Puerto del servidor.
+     */
     private static String PUERTO;
+    /**
+     * IP del servidor.
+     */
     private static String SERVER_IP;
 
+    /**
+     * Identificar si hay que añadir los valores a la base de datos.
+     */
     private boolean add;
+    /**
+     * Mensaje a transmitir por sockets.
+     */
     private String mensaje;
+    /**
+     * Componente donde se van a mostrar los mensajes de error.
+     */
     private Component parentComponent;
+    /**
+     * Listener, pendiente de si se reciben los valores por sockets.
+     */
     private PropertyChangeSupport conector;
 
     public ClientSocket(String mensaje, Component parentComponent, PropertyChangeListener listener, boolean addToDatabase) {
