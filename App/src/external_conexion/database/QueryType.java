@@ -1,6 +1,9 @@
 package external_conexion.database;
 
-public enum Query_Types {
+/**
+ * Tipo de querys que se pueden realizar en la base de datos mediante la aplicacion.
+ */
+public enum QueryType {
 
     GET_USER("SELECT * FROM usuario WHERE username=?"),
 
@@ -81,7 +84,7 @@ public enum Query_Types {
      */
     private final String query;
 
-    Query_Types(String query) {
+    QueryType(String query) {
         this.query = query;
     }
 
@@ -89,7 +92,7 @@ public enum Query_Types {
      * Recibir el texto que forma la query.
      * @return La query.
      */
-    public String GetQuery() {
+    public String getQuery() {
         return this.query;
     }
 }

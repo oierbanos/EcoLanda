@@ -1,6 +1,6 @@
 package app_launcher;
 
-import external_conexion.database.Query_Selector;
+import external_conexion.database.QuerySelector;
 import sistema_pantallas.login.PantallaLogin;
 import sistema_pantallas.login.users.Usuario;
 import sistema_pantallas.pantallas_acciones.PanelInicio;
@@ -41,7 +41,7 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
     /**
      * Conexión a la base de datos
      */
-    Query_Selector conector;
+    QuerySelector conector;
 
     /**
      * Usuario que ha iniciado sesión.
@@ -56,7 +56,7 @@ public class EcoLanda extends JFrame implements PropertyChangeListener {
         super("EcoLanda");
 
         // Crear un conector con la base de datos
-        this.conector = new Query_Selector();
+        this.conector = new QuerySelector();
 
         // Determinar tamaño de la pantalla
         Toolkit toolkit = Toolkit.getDefaultToolkit();

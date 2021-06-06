@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Query_Selector {
+public class QuerySelector {
 
     /**
      * Conector con la base de datos.
      */
-    Database_Conector conector = null;
+    DatabaseConector conector = null;
 
     /**
      * Crear una conexion con la base de datos.
@@ -21,7 +21,7 @@ public class Query_Selector {
      * @param parentComponent Panel para mostrar los mensajes de error.
      */
     public void setConexion(String username, String password, Component parentComponent) {
-        conector = new Database_Conector();
+        conector = new DatabaseConector();
         conector.conectar(username, password);
         conector.setParentComponent(parentComponent);
     }
@@ -32,8 +32,8 @@ public class Query_Selector {
      * @param values Valores que se van a añadir a la query.
      * @return Resultado de la query.
      */
-    public ResultSet select_query(Query_Types type, List<String> values) {
-        return conector.makeQuery(type.GetQuery(), values);
+    public ResultSet selectQuery(QueryType type, List<String> values) {
+        return conector.makeQuery(type.getQuery(), values);
     }
 
     /**
@@ -49,8 +49,8 @@ public class Query_Selector {
             // Comprobar si el tipo es de temperatura o humedad.
             if (type.equals("temp") || type.equals("hum")) {
                 // Crear un nuevo ID.
-                values.add(String.valueOf(select_query(
-                        Query_Types.HIGHEST_ID_MEDICION,
+                values.add(String.valueOf(selectQuery(
+                        QueryType.HIGHEST_ID_MEDICION,
                         null).getInt("id") + 1
                 ));
                 values.add(value);

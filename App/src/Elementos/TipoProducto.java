@@ -1,5 +1,8 @@
 package Elementos;
 
+/**
+ * El tipo de un lote de productos.
+ */
 public class TipoProducto {
 
     /**

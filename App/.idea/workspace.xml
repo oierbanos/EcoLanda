@@ -8,85 +8,22 @@
       <change beforePath="$PROJECT_DIR$/src/Elementos/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Elementos/Time.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Elementos/TipoProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Elementos/TipoProducto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app_launcher/EcoLanda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_launcher/EcoLanda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/errors/TimeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/errors/TimeException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/errors/UserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/errors/UserException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Database_Conector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/Database_Conector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Query_Selector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/Query_Selector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Query_Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/Query_Types.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/file_management/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/file_management/FileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Database_Conector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/DatabaseConector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Query_Selector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/QuerySelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Query_Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/QueryType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/external_conexion/sockets/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/sockets/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Data Base/Creation Scripts/EcoLanda_data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Data Base/Creation Scripts/EcoLanda_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/DebugConfig/Target_1_STM32F407ZGTx.dbgconf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/EcoLanda.uvguix.oierb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/EcoLanda.uvguix.osfjo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/EcoLanda.uvprojx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/EventRecorderStub.scvd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/JLinkSettings.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/EcoLanda.lnp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/ExtDll.iex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/startup_stm32f407xx.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_cortex.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_cortex.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_cortex.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_dma.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_dma.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_dma.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_dma_ex.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_dma_ex.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_dma_ex.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_exti.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_exti.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_exti.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash_ex.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash_ex.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash_ex.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash_ramfunc.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash_ramfunc.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_flash_ramfunc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_gpio.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_gpio.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_gpio.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_msp.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_msp.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_msp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_pwr.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_pwr.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_pwr.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_pwr_ex.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_pwr_ex.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_pwr_ex.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_rcc.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_rcc.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_rcc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_rcc_ex.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_rcc_ex.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_rcc_ex.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_tim.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_tim.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_tim.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_tim_ex.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_tim_ex.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_hal_tim_ex.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_it.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_it.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/stm32f4xx_it.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/system_stm32f4xx_1.crf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/system_stm32f4xx_1.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/Objects/system_stm32f4xx_1.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/RTE/Device/STM32F407ZGTx/startup_stm32f407xx.s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/RTE/Device/STM32F407ZGTx/system_stm32f4xx.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/RTE/_Target_1/RTE_Components.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/hx711.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/hx711.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/ourCom.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/ourGpio.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EcoLanda/ourGpioC.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/formaters/CharFormater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/formaters/CharFormater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/Gestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/Gestor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/sensores/GestorSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/sensores/GestorSensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/stock/AddStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/stock/AddStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/stock/GestorStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/stock/GestorStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/login/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/login/ControladorLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/login/PantallaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/login/PantallaLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/login/users/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/login/users/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/panel_inicial/PanelPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/panel_inicial/PanelPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelSensores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelSensores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_stock/ModeloTablaStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_stock/ModeloTablaStock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +96,9 @@
       <workItem from="1622732775558" duration="1348000" />
       <workItem from="1622734991722" duration="68000" />
       <workItem from="1622735163857" duration="293000" />
-      <workItem from="1622808980421" duration="6440000" />
+      <workItem from="1622808980421" duration="12421000" />
+      <workItem from="1622821921602" duration="630000" />
+      <workItem from="1622970799424" duration="6687000" />
     </task>
     <servers />
   </component>

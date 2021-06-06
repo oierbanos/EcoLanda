@@ -1,6 +1,6 @@
 package sistema_pantallas.panel_inicial;
 
-import external_conexion.database.Query_Selector;
+import external_conexion.database.QuerySelector;
 import sistema_pantallas.gestion_pantallas.Gestor;
 import sistema_pantallas.login.users.Usuario;
 import styles.ImageFactory;
@@ -29,14 +29,14 @@ public class PanelPrincipal extends JScrollPane implements PropertyChangeListene
 
     Usuario user;
 
-    Query_Selector conector;
+    QuerySelector conector;
 
     /**
      * Panel que contendra el menu de navegación y que servirá para contener las distinitas funciones
      * de la aplicación.
      * @param width Ancho de la pantalla.
      */
-    public PanelPrincipal(JFrame parentComponent, JScrollPane mainPanel, Usuario user, Query_Selector conector, int width) {
+    public PanelPrincipal(JFrame parentComponent, JScrollPane mainPanel, Usuario user, QuerySelector conector, int width) {
         super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         JSplitPane panel = new JSplitPane(

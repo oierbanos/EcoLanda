@@ -1,8 +1,8 @@
 package sistema_pantallas.login;
 
 import errors.UserException;
-import external_conexion.database.Query_Selector;
-import external_conexion.database.Query_Types;
+import external_conexion.database.QuerySelector;
+import external_conexion.database.QueryType;
 import sistema_pantallas.login.users.Direccion;
 import sistema_pantallas.login.users.Usuario;
 
@@ -15,27 +15,47 @@ import java.sql.SQLException;
 
 public class ControladorLogin {
 
+    /**
+     * Encargado de notificar a los listener de los distintos cambios.
+     */
     PropertyChangeSupport conector;
-    Query_Selector conexion_database;
+    /**
+     * Conector con la base de datos.
+     */
+    QuerySelector conexionDatabase;
 
-    public ControladorLogin(PropertyChangeListener listener, Query_Selector database_conector) {
+    /**
+     * Crear una nueva instancia de un controlador de login.
+     * @param listener Listener de los eventos.
+     * @param database_conector Conexion a la base de datos.
+     */
+    public ControladorLogin(PropertyChangeListener listener, QuerySelector database_conector) {
         // Crear una conexion con el panel principal
         conector = new PropertyChangeSupport(this);
         conector.addPropertyChangeListener(listener);
 
         // Iniciar el conector
-        this.conexion_database = database_conector;
+        this.conexionDatabase = database_conector;
     }
 
+    /**
+     * Iniciar sesion con un usuario en la base de datos y obtener los datos de este.
+     * @param parent Panel donde se muestran los mensajes de error.
+     * @param evt Evento que se va a realizar (Login/Cancel).
+     * @param username Nombre de usuario.
+     * @param password Contraseña.
+     */
     public void iniciarSesion(Component parent, String evt, String username, String password) {
         if (evt.equals("Login")) {
             try {
-                conexion_database.setConexion(username, password, parent);
+                // Conectar con el usuario y su contraseña.
+                conexionDatabase.setConexion(username, password, parent);
                 Usuario user = null;
 
-                if (conexion_database.checkConexion()) {
-                    ResultSet set = conexion_database.select_query(
-                            Query_Types.GET_USER, conexion_database.createArgumentList(username)
+                // Comprobar si se ha podido conectar.
+                if (conexionDatabase.checkConexion()) {
+                    ResultSet set = conexionDatabase.selectQuery(
+                            QueryType.GET_USER, conexionDatabase.createArgumentList(username)
                     );
                     while (set.next()) {
                         user = new Usuario(

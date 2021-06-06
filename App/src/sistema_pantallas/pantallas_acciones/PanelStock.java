@@ -1,7 +1,7 @@
 package sistema_pantallas.pantallas_acciones;
 
 import Elementos.LoteProducto;
-import external_conexion.database.Query_Selector;
+import external_conexion.database.QuerySelector;
 import sistema_pantallas.gestion_pantallas.stock.GestorStock;
 import sistema_pantallas.tablas.HeaderRenderer;
 import sistema_pantallas.tablas.ModeloColumnas;
@@ -28,7 +28,7 @@ public class PanelStock  extends JScrollPane {
 
     List<LoteProducto> loteProductos;
 
-    public PanelStock(JFrame parentComponent, int huerto_id, Query_Selector conector) {
+    public PanelStock(JFrame parentComponent, int huerto_id, QuerySelector conector) {
         super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.getVerticalScrollBar().setUnitIncrement(20);
 
@@ -151,7 +151,7 @@ public class PanelStock  extends JScrollPane {
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
 
         JButton boton = new JButton("Añadir Stock");
-        boton.addActionListener(e -> gestor.addStock(parentComponent, gestor));
+        boton.addActionListener(e -> gestor.addStock(parentComponent));
 
         boton.setFont(FontFactory.NORMAL_BUTTON);
         boton.setPreferredSize(new Dimension(200, 40));

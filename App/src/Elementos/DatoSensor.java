@@ -1,5 +1,8 @@
 package Elementos;
 
+/**
+ * Informacion recolectada por un sensor en un momento especifico.
+ */
 public class DatoSensor {
 
     /**

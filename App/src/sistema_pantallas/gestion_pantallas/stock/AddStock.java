@@ -9,15 +9,40 @@ import java.sql.SQLException;
 
 public class AddStock extends JDialog {
 
+    /**
+     * Ancho de pantalla predefinido.
+     */
     public final static int DEFAULT_WIDTH = 300;
+    /**
+     * Alto de pantalla predefinido.
+     */
     public final static int DEFAULT_HEIGHT = 400;
 
+    /**
+     * Gestor del stock.
+     */
     GestorStock gestor;
+    /**
+     * Lista de tipos.
+     */
     JComboBox<String> tipos;
 
+    /**
+     * Parametro para introducir cantidad.
+     */
     JTextField cantidad_plantada, cantidad_recogida;
+    /**
+     * Parametro para introducir fecha.
+     */
     JTextField fecha_plantada, fecha_recogida;
 
+    /**
+     * Crear un nuevo panel para añadir elementos al stock.
+     * @param parentComponent Panel donde el dialogo se muestra.
+     * @param tiutlo Titulo del dialogo.
+     * @param modo Especificar si se desea que el dialogo bloquee la pantalla.
+     * @param gestor Gestor del stock.
+     */
     public AddStock(JFrame parentComponent, String tiutlo, boolean modo, GestorStock gestor) {
         super(parentComponent, tiutlo, modo);
         this.gestor = gestor;
@@ -34,6 +59,10 @@ public class AddStock extends JDialog {
         this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
     }
 
+    /**
+     * Ventana principal.
+     * @return El panel de la ventana principal.
+     */
     private Container crearPanelVentana() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -45,6 +74,10 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Zona donde se añadiran los valores del lote.
+     * @return Panel de input.
+     */
     private Component panelInput() {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -55,6 +88,10 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Panel que permite seleccionar el tipo de lote.
+     * @return Panel de seleccion de tipo.
+     */
     private Component crearPanelSeleccionTipo() {
         JPanel panel = new JPanel();
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -73,6 +110,10 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Panel para añdir la cantidad.
+     * @return Panel de cantidad.
+     */
     private Component crearPanelCantidad() {
         JPanel panel = new JPanel();
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -87,6 +128,10 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Panel para añadir la cantidad plantada.
+     * @return Panel de cantidad plantada.
+     */
     private Component panelCantidadPlantada() {
         JPanel panel = new JPanel(new BorderLayout());
 
@@ -100,6 +145,10 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Panel para añadir la cantidad recogida.
+     * @return Panel de cantidad recogida.
+     */
     private Component panelCantidadRecogida() {
         JPanel panel = new JPanel(new BorderLayout(0, 100));
 
@@ -113,6 +162,10 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Panel para añadir la fecha.
+     * @return Panel con las fechas.
+     */
     private Component crearPanelFecha() {
         JPanel panel = new JPanel();
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -127,6 +180,10 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Panel para añadir la fecha de cuando se planto.
+     * @return Panel de fecha plantar.
+     */
     private Component panelFechaPlantada() {
         JPanel panel = new JPanel(new BorderLayout());
 
@@ -140,6 +197,10 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Panel para añadir la fecha de cuando se recogio.
+     * @return Panel fecha recoger.
+     */
     private Component panelFechaRecogida() {
         JPanel panel = new JPanel(new BorderLayout(0, 100));
 
@@ -153,6 +214,12 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Modificar un JLabel y un JTextField. Cambiar la dimension, la fuente y el borde
+     * de los componentes recibidos.
+     * @param label JLabel que se quiere modificar.
+     * @param field JTextField que se queire modificar.
+     */
     private void crearComponentes(JLabel label, JTextField field) {
         label.setFont(FontFactory.NORMAL_BUTTON);
         label.setPreferredSize(new Dimension(100, 40));
@@ -169,6 +236,10 @@ public class AddStock extends JDialog {
         field.setFont(FontFactory.NORMAL_BUTTON);
     }
 
+    /**
+     * Crear el panel con los botones de aceptar y cancelar.
+     * @return Panel con los botones.
+     */
     private Component panelBotones() {
         JPanel panel = new JPanel(new GridLayout(1, 2));
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -193,6 +264,11 @@ public class AddStock extends JDialog {
         return panel;
     }
 
+    /**
+     * Crear un boton.
+     * @param title Texto que contendra el boton.
+     * @return Un nuevo boton.
+     */
     private JButton crearBoton(String title) {
         JButton boton = new JButton(title);
 

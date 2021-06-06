@@ -1,7 +1,7 @@
 package sistema_pantallas.pantallas_acciones;
 
 import Elementos.DatoSensor;
-import external_conexion.database.Query_Selector;
+import external_conexion.database.QuerySelector;
 import external_conexion.sockets.ClientSocket;
 import sistema_pantallas.gestion_pantallas.sensores.GestorSensor;
 import sistema_pantallas.tablas.HeaderRenderer;
@@ -34,7 +34,7 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
     JLabel temperatura, humedad;
     List<DatoSensor> listaDatos;
 
-    public PanelSensores(JFrame parentComponent, Query_Selector conector, int huerto_id) {
+    public PanelSensores(JFrame parentComponent, QuerySelector conector, int huerto_id) {
         super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.getVerticalScrollBar().setUnitIncrement(20);
 

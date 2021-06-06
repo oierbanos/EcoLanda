@@ -7,7 +7,7 @@ import java.awt.*;
 import java.sql.*;
 import java.util.List;
 
-public class Database_Conector {
+public class DatabaseConector {
 
     /**
      * Driver utilizado para realizar la conexion con la base de datos.
@@ -40,7 +40,7 @@ public class Database_Conector {
      * Crear un objeto de conexion con la base de datos. Al crear este objeto
      * se lee la direccion IP y el puerto para conectarse al servidor.
      */
-    public Database_Conector() {
+    public DatabaseConector() {
         DATABASE_IP = FileReader.getDatabaseIP();
         DATABASE_PORT = FileReader.getDatabasePort();
     }

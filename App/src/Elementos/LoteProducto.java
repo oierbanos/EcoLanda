@@ -2,29 +2,32 @@ package Elementos;
 
 import java.util.Date;
 
+/**
+ * Conjunto de productos de un mismo tipo.
+ */
 public class LoteProducto {
 
     /**
      * Cantidad de semillas/plantas que se han plantado.
      * Se mide en unidades.
      */
-    int cantidad_plantada;
+    int cantidadPlantada;
 
     /**
      * Cantidad de productos que se han recogido.
      * Se mide en kilogramos y puede ser nulo.
      */
-    int cantidad_recogida;
+    int cantidadRecogida;
 
     /**
      * Dia en el que se han plantado los productos.
      */
-    Date fecha_plantado;
+    Date fechaPlantado;
     /**
      * Fecha en la que se han plantado los productos.
      * Puede ser nulo.
      */
-    Date fecha_recogido;
+    Date fechaRecogido;
 
     /**
      * Tipo de producto que se ha plantado.
@@ -35,16 +38,16 @@ public class LoteProducto {
      * Un lote de productos se trata de un conjunto de productos que han sido plantados
      * en una zona de un huerto.
      * @param cantidad_plantada Cantidad de semillas/plantas que se han plantado.
-     * @param cantidad_recogida Cantidad de productos que se han recogido.
-     * @param fecha_plantado Dia en el que se han plantado los productos.
-     * @param fecha_recogido Fecha en la que se han plantado los productos.
+     * @param cantidadRecogida Cantidad de productos que se han recogido.
+     * @param fechaPlantado Dia en el que se han plantado los productos.
+     * @param fechaRecogido Fecha en la que se han plantado los productos.
      * @param nombre Tipo de producto que se ha plantado.
      */
-    public LoteProducto (int cantidad_plantada, int cantidad_recogida, Date fecha_plantado, Date fecha_recogido, String nombre) {
-        this.cantidad_plantada = cantidad_plantada;
-        this.cantidad_recogida = cantidad_recogida;
-        this.fecha_plantado = fecha_plantado;
-        this.fecha_recogido = fecha_recogido;
+    public LoteProducto (int cantidad_plantada, int cantidadRecogida, Date fechaPlantado, Date fechaRecogido, String nombre) {
+        this.cantidadPlantada = cantidad_plantada;
+        this.cantidadRecogida = cantidadRecogida;
+        this.fechaPlantado = fechaPlantado;
+        this.fechaRecogido = fechaRecogido;
         tipo = new TipoProducto(nombre);
     }
 
@@ -52,32 +55,32 @@ public class LoteProducto {
      * Recibir la cantidad de productos plantados que forman parte del lote.
      * @return Cantidad de productos plantados.
      */
-    public int getCantidad_plantada() {
-        return cantidad_plantada;
+    public int getCantidadPlantada() {
+        return cantidadPlantada;
     }
 
     /**
      * Recibir la cantidad de productos recogidos que forman parte del lote.
      * @return Cantidad de productos recogidos.
      */
-    public int getCantidad_recogida() {
-        return cantidad_recogida;
+    public int getCantidadRecogida() {
+        return cantidadRecogida;
     }
 
     /**
      * Recibir la fecha en la que se planto un lote de productos.
      * @return Fecha en la que se planto.
      */
-    public Date getFecha_plantado() {
-        return fecha_plantado;
+    public Date getFechaPlantado() {
+        return fechaPlantado;
     }
 
     /**
      * Recibir la fecha en la que se recogio un lote de productos.
      * @return Fecha en la que se recogio.
      */
-    public Date getFecha_recogido() {
-        return fecha_recogido;
+    public Date getFechaRecogido() {
+        return fechaRecogido;
     }
 
     /**
@@ -104,10 +107,10 @@ public class LoteProducto {
     public Object getFieldAt(int index) {
         switch (index) {
             case 0: return tipo.getNombre();
-            case 1: return cantidad_plantada;
-            case 2: return cantidad_recogida;
-            case 3: return fecha_plantado;
-            case 4: return fecha_recogido;
+            case 1: return cantidadPlantada;
+            case 2: return cantidadRecogida;
+            case 3: return fechaPlantado;
+            case 4: return fechaRecogido;
             default: return null;
         }
     }

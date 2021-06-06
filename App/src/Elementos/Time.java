@@ -4,6 +4,9 @@ import errors.TimeException;
 
 import java.util.Date;
 
+/**
+ * Fecha y hora de un suceso.
+ */
 public class Time {
 
     /**
@@ -13,11 +16,11 @@ public class Time {
     /**
      * Minutos.
      */
-    int minutos;
+    int minuto;
     /**
      * Segundos.
      */
-    int segundos;
+    int segundo;
     /**
      * Dia, mes y año.
      */
@@ -27,18 +30,18 @@ public class Time {
      * Registro de fecha y hora.
      * @param fecha Dia, mes y año.
      * @param hora Hora.
-     * @param minutos Minutos.
-     * @param segundos Segundos.
+     * @param minuto Minutos.
+     * @param segundo Segundos.
      * @throws TimeException Si el formato de fecha no es correcto lanza una excepcion.
      */
-    public Time (Date fecha, int hora, int minutos, int segundos) throws TimeException {
+    public Time (Date fecha, int hora, int minuto, int segundo) throws TimeException {
         this.fecha = fecha;
         this.hora = hora;
-        this.minutos = minutos;
-        this.segundos = segundos;
+        this.minuto = minuto;
+        this.segundo = segundo;
 
         // Comprobar que el formato de hora es correcto.
-        if (hora > 24 || hora < 0 || minutos > 60 || minutos < 0 || segundos > 60 || segundos < 0) {
+        if (hora > 24 || hora < 0 || minuto > 60 || minuto < 0 || segundo > 60 || segundo < 0) {
             throw new TimeException("El valor de la fecha no es correcto");
         }
     }
@@ -48,7 +51,7 @@ public class Time {
      * @return hh:mm:ss
      */
     public String getHora() {
-        return hora + ":" + minutos + ":" + segundos;
+        return hora + ":" + minuto + ":" + segundo;
     }
 
     /**

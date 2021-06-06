@@ -31,16 +31,16 @@ public class ModeloTablaStock  extends AbstractTableModel {
                 setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getNombreTipo)).collect(Collectors.toList()));
                 break;
             case "cantidadP":
-                setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getCantidad_plantada)).collect(Collectors.toList()));
+                setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getCantidadPlantada)).collect(Collectors.toList()));
                 break;
             case "cantidadR":
-                setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getCantidad_recogida)).collect(Collectors.toList()));
+                setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getCantidadRecogida)).collect(Collectors.toList()));
                 break;
             case "fechaP":
-                setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getFecha_plantado)).collect(Collectors.toList()));
+                setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getFechaPlantado)).collect(Collectors.toList()));
                 break;
             case "fechaR":
-                setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getFecha_recogido)).collect(Collectors.toList()));
+                setLista(listaProductos.stream().sorted(Comparator.comparing(LoteProducto::getFechaRecogido)).collect(Collectors.toList()));
                 break;
         }
     }

@@ -38,7 +38,7 @@ public class Usuario {
     /**
      * Identificador del huerto dentro de la base de datos
      */
-    private int huerto_id;
+    private int huertoId;
 
     /**
      * Crear un objeto de tipo usuario.
@@ -48,43 +48,23 @@ public class Usuario {
      * @param correo    Correo electronico del usuario.
      * @param telefono  Numero de telefono del usuario.
      * @param direccion Dirección del usuario.
-     * @param huerto_id Identificador del huerto que tiene asociado.
+     * @param huertoId Identificador del huerto que tiene asociado.
      */
-    public Usuario(String username, String nombre, String apellido, String correo, String telefono, Direccion direccion, int huerto_id) {
+    public Usuario(String username, String nombre, String apellido, String correo, String telefono, Direccion direccion, int huertoId) {
         this.username = username;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.huerto_id = huerto_id;
+        this.huertoId = huertoId;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public Direccion getDireccion() {
-        return direccion;
-    }
-
-    public int getHuerto_id() {
-        return huerto_id;
+    /**
+     * Obtener el numero identificador del huerto del usuario.
+     * @return Identificador del huerto.
+     */
+    public int getHuertoId() {
+        return huertoId;
     }
 }

@@ -1,6 +1,6 @@
 package sistema_pantallas.login;
 
-import external_conexion.database.Query_Selector;
+import external_conexion.database.QuerySelector;
 import formaters.CharFormater;
 import styles.ColorFactory;
 import styles.FontFactory;
@@ -9,8 +9,6 @@ import styles.ImageFactory;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeListener;
@@ -28,7 +26,7 @@ public class PantallaLogin extends JFrame {
     JTextField username;
     JPasswordField password;
 
-    public PantallaLogin(Query_Selector conector, PropertyChangeListener listener) {
+    public PantallaLogin(QuerySelector conector, PropertyChangeListener listener) {
         // Titulo de la aplicación
         super("EcoLanda Login");
 
