@@ -8,11 +8,25 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
+/**
+ * Hilo de comunicacion con el cliente de sockets.
+ */
 public class SocketThread extends Thread implements PropertyChangeListener {
 
+    /**
+     * Listener de eventos.
+     */
     protected PropertyChangeSupport conector;
+    /**
+     * Socket conectado.
+     */
     protected Socket socket;
 
+    /**
+     * Crear un nuevo hilo de sockets.
+     * @param clientSocket Cliente de sockets que se ha conectado.
+     * @param listener Listener de los ventos.
+     */
     public SocketThread(Socket clientSocket, PropertyChangeListener listener) {
         this.socket = clientSocket;
         this.conector = new PropertyChangeSupport(this);
@@ -22,11 +36,13 @@ public class SocketThread extends Thread implements PropertyChangeListener {
     @Override
     public void run() {
         try {
+            // Lector de datos por sockets.
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             try {
-                String line = in.readLine();
+                String line = in.readLine(); // Leer informacion
 
+                // Realizar eventos.
                 if (line.equals("Actualizar sensores")) {
                     conector.firePropertyChange("Actualizar", null, null);
                 }
@@ -44,6 +60,7 @@ public class SocketThread extends Thread implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         try {
             if (!socket.isClosed()) {
+                // Transmitir datos mediante sockets.
                 OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
                 String value = (String) evt.getNewValue();
 

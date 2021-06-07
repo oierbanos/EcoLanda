@@ -2,19 +2,35 @@ import com.fazecast.jSerialComm.SerialPort;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * Clase principal.
+ */
 public class Conexion {
 
-    //El nombre del puerto puede variar dependiendo de la entrada USB del PC inicializamos y declaramos variables
+	/**
+	 * El nombre del puerto puede variar dependiendo de la entrada USB del PC inicializamos y declaramos variables.
+	 */
 	private static final int RATIO_SERIAL = 9600;
 
+	/**
+	 * Comunicacion mediante serial con la placa Olimex.
+	 */
 	ComunicacionPlaca comunicacion;
+	/**
+	 * Puerto de sockets que escucha a los clientes de sockets.
+	 */
     SerialPort serialport;
-    Integer puerto;
-  	
-  	public void conectar() {
+	/**
+	 * Numero de puerto.
+	 */
+	Integer puerto;
+
+	/**
+	 * Conectar el sistema mediante serial.
+	 */
+	public void conectar() {
 		SerialPort[] puertosDisponibles = SerialPort.getCommPorts();
 
 		try {
@@ -37,8 +53,12 @@ public class Conexion {
 			System.out.println("No se ha podido conectar con la placa.");
 		}
   	}
-  	
-  	public void getPuerto(SerialPort[] puertosDisponibles) {
+
+	/**
+	 * Recibir el puerto de serial.
+	 * @param puertosDisponibles Array de puertos disponibles.
+	 */
+	public void getPuerto(SerialPort[] puertosDisponibles) {
 		for (int i = 0; i < puertosDisponibles.length; i++) {
 			if (puertosDisponibles[i].getDescriptivePortName().toLowerCase().contains("prolific")) {
 				System.out.println("Conectando a...\n" + puertosDisponibles[i].getSystemPortName()
@@ -49,6 +69,9 @@ public class Conexion {
 		}
 	}
 
+	/**
+	 * Configurar el puerto de serial.
+	 */
     private void configurarPuerto() {
  		serialport.setComPortTimeouts(SerialPort.TIMEOUT_NONBLOCKING, 5000, 0);
 		serialport.setBaudRate(RATIO_SERIAL);
@@ -60,6 +83,10 @@ public class Conexion {
 		serialport.addDataListener(comunicacion);
 	}
 
+	/**
+	 * Listener del teclado, identifica si se ha escrito "salir" para asi indicar que se debe de apagar
+	 * el servidor.
+	 */
 	public static class KeyboardListener extends Thread {
 
 		@Override
@@ -78,7 +105,7 @@ public class Conexion {
 	}
 
 	public static void main(String[] args) throws IOException {
-		ServerSocket server = new ServerSocket(8888);
+		ServerSocket server = new ServerSocket(8888); // Poner en marcha el servidor de sockets.
 		Conexion conexion = new Conexion();
 
 		conexion.conectar(); // Conectar Serial
