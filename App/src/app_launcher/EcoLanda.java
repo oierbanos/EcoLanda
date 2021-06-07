@@ -12,6 +12,9 @@ import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
+/**
+ * Clase de inicio.
+ */
 public class EcoLanda extends JFrame implements PropertyChangeListener {
 
     /**  Ancho por defecto de la pantalla */

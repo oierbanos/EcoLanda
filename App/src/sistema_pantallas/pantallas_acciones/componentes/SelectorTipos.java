@@ -6,16 +6,32 @@ import styles.RoundedBorder;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Panel de seleccion de tipos.
+ */
 public class SelectorTipos extends JPanel {
 
+    /**
+     * Modelo de la lista que se va a mostrar.
+     */
     DefaultListModel<String> modelo;
+    /**
+     * Lista donde se muestran los datos.
+     */
     JList<String> lista;
 
+    /**
+     * Crear una nueva instancia de un selector de tipos.
+     */
     public SelectorTipos() {
         super(new BorderLayout());
         this.add(crearPanelScroll());
     }
 
+    /**
+     * Crear el panel donde se muestran los elementos.
+     * @return
+     */
     private Component crearPanelScroll() {
 
         JPanel panel = new JPanel(new BorderLayout());
@@ -39,6 +55,11 @@ public class SelectorTipos extends JPanel {
         return panel;
     }
 
+    /**
+     * Crear zona de muestra de texto.
+     * @param text Texto que se va a mostrar.
+     * @return Un nuevo elemento de muestra de texto.
+     */
     private JTextField createTextField(String text) {
         JTextField titulo = new JTextField(text);
 
@@ -52,6 +73,10 @@ public class SelectorTipos extends JPanel {
         return  titulo;
     }
 
+    /**
+     * Crear panel de tipos basicos.
+     * @return Nuevo panel de tipos basicos.
+     */
     private Component crearTiposBasicos() {
         JScrollPane panel = new JScrollPane(
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -59,6 +84,10 @@ public class SelectorTipos extends JPanel {
         return panel;
     }
 
+    /**
+     * Crear panel de tipos personalizados.
+     * @return Nuevo panel de tipos personalizados.
+     */
     private Component crearTiposPersonalizados() {
         JScrollPane panel = new JScrollPane(
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

@@ -13,6 +13,9 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeListener;
 
+/**
+ * Pantalla donde el usuario hace login.
+ */
 public class PantallaLogin extends JFrame {
 
     /**  Ancho por defecto de la pantalla */
@@ -21,11 +24,25 @@ public class PantallaLogin extends JFrame {
     /** Alto por defecto de la pantalla */
     public final static int DEFAULT_HEIGHT = 600;
 
+    /**
+     * Controlador del panel de login.
+     */
     ControladorLogin controlador;
 
+    /**
+     * Zona de input de usuario.
+     */
     JTextField username;
+    /**
+     * Zona de input de contraseña.
+     */
     JPasswordField password;
 
+    /**
+     * Crear una nueva pantalla de login.
+     * @param conector Conexion a la base de datos.
+     * @param listener Clase pendiente de los cambios de login.
+     */
     public PantallaLogin(QuerySelector conector, PropertyChangeListener listener) {
         // Titulo de la aplicación
         super("EcoLanda Login");
@@ -55,6 +72,10 @@ public class PantallaLogin extends JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
+    /**
+     * Crear el panel de login.
+     * @return Un nuevo panel de login.
+     */
     private Container crearPanelLogin() {
         JPanel panel  = new JPanel(new BorderLayout());
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -67,6 +88,10 @@ public class PantallaLogin extends JFrame {
         return panel;
     }
 
+    /**
+     * Crear el panel con el boton de confirmar.
+     * @return Un nuevo panel confirmar.
+     */
     private Container crearBotonConfirmar() {
         JPanel panel  = new JPanel(new GridLayout(2, 1));
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -87,6 +112,12 @@ public class PantallaLogin extends JFrame {
         return panel;
     }
 
+    /**
+     * Crera un boton.
+     * @param text Texto del boton.
+     * @param w Anchura del boton.
+     * @return Un nuevo boton.
+     */
     private JButton crearBoton(String text, int w) {
         JButton boton = new JButton(text);
 
@@ -96,6 +127,11 @@ public class PantallaLogin extends JFrame {
         return boton;
     }
 
+    /**
+     * Crear el panel del boton.
+     * @param boton El boton que se va a añadir al panel.
+     * @return El nuevo panel del boton.
+     */
     private JPanel crearPanelBoton(JButton boton) {
         JPanel panel = new JPanel();
 
@@ -105,6 +141,10 @@ public class PantallaLogin extends JFrame {
         return panel;
     }
 
+    /**
+     * Crear el panel para el formulario.
+     * @return Un nuevo panel para el formulario.
+     */
     private Container crearPanelRellenoFormulario() {
         JPanel panel  = new JPanel();
 
@@ -125,6 +165,10 @@ public class PantallaLogin extends JFrame {
         return panel;
     }
 
+    /**
+     * Crear panel para insertar nombre.
+     * @return Nuevo panel de input de texto.
+     */
     private Component crearTextField() {
         JPanel panel = new JPanel();
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -152,6 +196,10 @@ public class PantallaLogin extends JFrame {
         return panel;
     }
 
+    /**
+     * Crear panel para insertar contraseña.
+     * @return
+     */
     private Component crearJPasswordField() {
         JPanel panel = new JPanel();
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -194,6 +242,10 @@ public class PantallaLogin extends JFrame {
         return panel;
     }
 
+    /**
+     * Crear imagen del panel.
+     * @return Nuevo panel con imagen.
+     */
     private Container crearImagenUser() {
         JPanel panel = new JPanel();
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -209,6 +261,12 @@ public class PantallaLogin extends JFrame {
         return panel;
     }
 
+    /**
+     * Hacer que los bordes de una imagen sean redondos.
+     * @param image Imagen del panel.
+     * @param cornerRadius Radio de los bordes.
+     * @return Imagen con los bordes redondos.
+     */
     public static BufferedImage makeRoundedCorner(BufferedImage image, int cornerRadius) {
         int w = image.getWidth();
         int h = image.getHeight();

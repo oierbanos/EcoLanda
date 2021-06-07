@@ -11,6 +11,9 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.File;
 
+/**
+ * Un panel de huerto.
+ */
 public class PanelHuerto extends JScrollPane {
 
     Point start = null;
@@ -21,6 +24,10 @@ public class PanelHuerto extends JScrollPane {
     JPanel mainPanel;
     JPanel panelHuerto;
 
+    /**
+     * Una nueva instancia de un panel de huerto.
+     * @param listener Listener de los eventos que ocurren en el panel.
+     */
     public PanelHuerto(PropertyChangeListener listener) {
         super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.conector = new PropertyChangeSupport(this);
@@ -33,6 +40,10 @@ public class PanelHuerto extends JScrollPane {
         this.setViewportView(crearPanelVentana());
     }
 
+    /**
+     * Crear el panel principal.
+     * @return El panel principal.
+     */
     private Component crearPanelVentana() {
         mainPanel = new JPanel(new BorderLayout());
 
@@ -43,6 +54,10 @@ public class PanelHuerto extends JScrollPane {
         return mainPanel;
     }
 
+    /**
+     * Crear un panel de la muestra del estado del huerto.
+     * @return Un nuevo panel de huerto.
+     */
     private Component crearPanelHuerto() {
         JPanel panel = new JPanel(new BorderLayout());
 
@@ -54,6 +69,10 @@ public class PanelHuerto extends JScrollPane {
         return panel;
     }
 
+    /**
+     * Crear el panel interno del huerto.
+     * @return Un nuevo panel interno del huerto.
+     */
     private Component crearPanelHuertoInterno() {
         panelHuerto = new JPanel(new BorderLayout());
 
@@ -87,15 +106,14 @@ public class PanelHuerto extends JScrollPane {
         return panelHuerto;
     }
 
+    /**
+     * Cambiar la imagen de fondo.
+     * @param image Imagen que se va a colocar.
+     */
     public void setMapImage(File image) {
         if (panelHuerto != null) {
             mainPanel.remove(panelHuerto);
             this.repaint();
         }
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
     }
 }

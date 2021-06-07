@@ -7,10 +7,20 @@ import java.awt.Insets;
 
 import javax.swing.border.Border;
 
+/**
+ * Borde redondeado.
+ */
 public class RoundedBorder implements Border {
 
+	/**
+	 * Radio de los bordes del panel.
+	 */
 	private final int radius;
-	
+
+	/**
+	 * Crear una nueva instancia de un borde redondeado.
+	 * @param radio
+	 */
 	public RoundedBorder(int radio) {
 		this.radius = radio;
 	}

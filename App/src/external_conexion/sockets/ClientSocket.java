@@ -13,6 +13,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+/**
+ * Conexion con el servidor de socket.
+ */
 public class ClientSocket extends Thread {
 
     /**

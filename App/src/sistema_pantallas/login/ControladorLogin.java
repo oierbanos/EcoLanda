@@ -13,6 +13,9 @@ import java.beans.PropertyChangeSupport;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Controlador de login.
+ */
 public class ControladorLogin {
 
     /**
@@ -86,6 +89,12 @@ public class ControladorLogin {
         }
     }
 
+    /**
+     * Lanzar un evento para avisar de que se ha iniciado la sesion.
+     * @param name Tipo de evento que se va a lanzar.
+     * @param user Usuario que se ha obtenido. Si no se ha obtenido ninguno es nulo.
+     * @throws UserException Excepcion lanzada si el usuario no se ha encontrado.
+     */
     public void launchEvent(String name, Usuario user) throws UserException {
         if (name.equals("Login")) {
             if (user != null) {

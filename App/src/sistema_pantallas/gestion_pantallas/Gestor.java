@@ -7,6 +7,9 @@ import sistema_pantallas.pantallas_acciones.*;
 
 import javax.swing.*;
 
+/**
+ * Gestor principal del programa.
+ */
 public class Gestor {
 
     public static final String GESTIONAR_HUERTO = "huerto";

@@ -6,6 +6,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 
+/**
+ * Renderizado de la tabla de sensores.
+ */
 public class RendererSensor extends DefaultTableCellRenderer {
 
     private static final long serialVersionUID = 1L;
@@ -20,11 +23,11 @@ public class RendererSensor extends DefaultTableCellRenderer {
             case 1:
             case 2:
             case 3:
-            case 4:
+            case 4: // Valores numericos.
                 componente.setHorizontalAlignment(JLabel.CENTER);
                 componente.setFont(FontFactory.TITLE_FONT);
                 break;
-            case 0:
+            case 0: // Texto
                 componente.setBorder(BorderFactory.createEmptyBorder(3, 5, 3, 5));
                 componente.setFont(FontFactory.PLAIN_TITLE_FONT);
                 componente.setHorizontalAlignment(JLabel.LEFT);

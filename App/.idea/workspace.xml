@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="008930d0-12d2-4dde-9662-7dd99ebd467d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/external_conexion/database/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Elementos/DatoSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Elementos/DatoSensor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Elementos/LoteProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Elementos/LoteProducto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Elementos/Time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Elementos/Time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Elementos/TipoProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Elementos/TipoProducto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app_launcher/EcoLanda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app_launcher/EcoLanda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Database_Conector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/DatabaseConector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Query_Selector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/QuerySelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/Query_Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/QueryType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/TimeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/errors/TimeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/errors/UserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/errors/UserException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/DatabaseConector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/DatabaseConector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/external_conexion/database/QuerySelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/database/QuerySelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/external_conexion/file_management/FileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/file_management/FileReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/external_conexion/sockets/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/external_conexion/sockets/ClientSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/formaters/CharFormater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/formaters/CharFormater.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/Gestor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/Gestor.java" afterDir="false" />
@@ -19,16 +18,38 @@
       <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/stock/GestorStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/stock/GestorStock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/login/ControladorLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/login/ControladorLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/login/PantallaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/login/PantallaLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/login/users/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/login/users/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/login/users/Direccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/login/users/Direccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/panel_inicial/BarraMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/panel_inicial/BarraMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/panel_inicial/PanelPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/panel_inicial/PanelPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelHuerto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelHuerto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelInicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelInicio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelSensores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelSensores.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/PanelUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/componentes/AddImagen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/componentes/AddImagen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/componentes/SelectorTipos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/pantallas_acciones/componentes/SelectorTipos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/tablas/HeaderRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/tablas/HeaderRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/tablas/ModeloColumnas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/tablas/ModeloColumnas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_sensor/ModeloTablaSensores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_sensor/ModeloTablaSensores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_sensor/RendererSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_sensor/RendererSensor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_stock/ModeloTablaStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_stock/ModeloTablaStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_stock/RendererStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/tablas/tabla_stock/RendererStock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/visual_panels/PanelGradiente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/visual_panels/PanelGradiente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/visual_panels/PanelImagen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/visual_panels/PanelImagen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/ColorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ColorFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/FontFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/FontFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -66,13 +87,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -99,6 +122,7 @@
       <workItem from="1622808980421" duration="12421000" />
       <workItem from="1622821921602" duration="630000" />
       <workItem from="1622970799424" duration="6687000" />
+      <workItem from="1623065660636" duration="5104000" />
     </task>
     <servers />
   </component>

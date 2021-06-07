@@ -1,15 +1,21 @@
 package sistema_pantallas.panel_inicial;
 
-import app_launcher.EcoLanda;
 import sistema_pantallas.gestion_pantallas.Gestor;
 import styles.*;
 
 import javax.swing.*;
 
+/**
+ * Barra de menu.
+ */
 public class BarraMenu extends JMenuBar {
 
     PanelPrincipal mainPanel;
 
+    /**
+     * Barra de menu de la aplicacion.
+     * @param panelPrincipal Panel principal de la aplicacion.
+     */
     public BarraMenu(PanelPrincipal panelPrincipal) {
         this.mainPanel = panelPrincipal;
 
@@ -19,6 +25,10 @@ public class BarraMenu extends JMenuBar {
         this.add(crearSubmenuPersonal());
     }
 
+    /**
+     * Crear un submenu para el apartado de inicio.
+     * @return Un nueo submenu.
+     */
     private JMenu crearSubmenuInicio() {
         JMenu menu = new JMenu("Inicio");
         menu.setFont(FontFactory.MENU_FONT);
@@ -36,6 +46,10 @@ public class BarraMenu extends JMenuBar {
         return menu;
     }
 
+    /**
+     * Crear un submenu para el apartado de gestion.
+     * @return Un nuevo submenu.
+     */
     private JMenu crearSubmenuGestion() {
         JMenu menu = new JMenu("Gestión");
         menu.setFont(FontFactory.MENU_FONT);
@@ -73,6 +87,10 @@ public class BarraMenu extends JMenuBar {
         return menu;
     }
 
+    /**
+     * Crear un submenu para el apartado de gestion.
+     * @return Un nuevo submenu.
+     */
     private JMenu crearSubmenuPersonal() {
         JMenu menu = new JMenu("Area Personal");
         menu.setFont(FontFactory.MENU_FONT);

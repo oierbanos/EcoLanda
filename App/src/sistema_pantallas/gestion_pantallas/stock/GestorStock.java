@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Gestor del stock.
+ */
 public class GestorStock {
 
     /**

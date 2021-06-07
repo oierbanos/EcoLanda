@@ -12,8 +12,14 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+/**
+ * Panel de inicio.
+ */
 public class PanelInicio extends JScrollPane {
 
+    /**
+     * Crear una nueva instancia del panel de inicio.
+     */
     public PanelInicio() {
         super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.setBackground(Color.white);
@@ -23,6 +29,10 @@ public class PanelInicio extends JScrollPane {
         this.setViewportView(crearPanelVentana());
     }
 
+    /**
+     * Crear panel principal.
+     * @return Un nuevo panel principal.
+     */
     private Component crearPanelVentana() {
         PanelImagen panel = new PanelImagen();
         panel.setBackground(Color.white);
@@ -38,6 +48,7 @@ public class PanelInicio extends JScrollPane {
             @Override
             public void mouseClicked(MouseEvent arg0) {
                 try {
+                    // Si el usuario clicka en la zona del link abre la pagina de github.
                     Desktop.getDesktop().browse(new URI("https://github.com/oierbanos/EcoLanda"));
                 } catch (IOException | URISyntaxException e) {
                     e.printStackTrace();
@@ -46,12 +57,14 @@ public class PanelInicio extends JScrollPane {
 
             @Override
             public void mouseEntered(MouseEvent arg0) {
+                // Cambiar el color del texto al pasar el raton por encima.
                 label.setForeground(ColorFactory.HIGHLIGHT_COLOR);
                 label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             }
 
             @Override
             public void mouseExited(MouseEvent arg0) {
+                // Resetear el color del texto al quitar el raton.
                 label.setForeground(ColorFactory.BASE_COLOR);
             }
 

@@ -7,6 +7,9 @@ import java.awt.*;
 import java.sql.*;
 import java.util.List;
 
+/**
+ * Conexion a la base de datos.
+ */
 public class DatabaseConector {
 
     /**

@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Gestor de los datos de los sensores.
+ */
 public class GestorSensor {
 
     /**

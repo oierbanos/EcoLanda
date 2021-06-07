@@ -11,10 +11,15 @@ import java.awt.RenderingHints;
 
 import javax.swing.JPanel;
 
+/**
+ * Un panel con color gradiente.
+ */
 public class PanelGradiente extends JPanel {
 
-    private static final long serialVersionUID = 1L;
-
+    /**
+     * Crear una nueva instancia de un panel gradiente.
+     * @param layout Layout del panel.
+     */
     public PanelGradiente(LayoutManager layout) {
         super(layout);
     }

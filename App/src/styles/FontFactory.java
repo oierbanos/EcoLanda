@@ -2,6 +2,9 @@ package styles;
 
 import java.awt.*;
 
+/**
+ * Fabrica de fuentes para el texto.
+ */
 public class FontFactory {
 
     private static final String Arial = "Arial";
@@ -16,5 +19,4 @@ public class FontFactory {
     public static final Font LINK_FONT = new Font(Times, Font.PLAIN, 24);
     public static final Font BIG_BUTTON = new Font(Times, Font.PLAIN, 24);
     public static final Font NORMAL_BUTTON = new Font(Times, Font.PLAIN, 20);
-    public static final Font SMALL_BUTTON = new Font(Times, Font.PLAIN, 14);
 }

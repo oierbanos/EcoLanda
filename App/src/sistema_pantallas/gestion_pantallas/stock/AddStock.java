@@ -7,6 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
 
+/**
+ * Añadir stock a la base de datos.
+ */
 public class AddStock extends JDialog {
 
     /**

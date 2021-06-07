@@ -2,6 +2,9 @@ package styles;
 
 import java.awt.*;
 
+/**
+ * Fabrica de colores.
+ */
 public class ColorFactory {
 
     public static final Color LIGHT_COLOR = new Color(200, 225, 200);

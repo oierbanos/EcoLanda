@@ -1,5 +1,8 @@
 package errors;
 
+/**
+ * Excepcion de tiempo.
+ */
 public class TimeException extends Exception{
 
     /**

@@ -7,22 +7,41 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Modelo de tabla de los sensores.
+ */
 public class ModeloTablaSensores extends AbstractTableModel {
 
-    private static final long serialVersionUID = 1L;
+    /**
+     * Nombre de las columnas.
+     */
     private static final String[] NOMBRE_COLUMNAS = { "Tipo", "Valor", "Fecha" };
 
+    /**
+     * Lista con los datos.
+     */
     List<DatoSensor> listaDatos;
 
+    /**
+     * Modelo de la tabla de sensores.
+     * @param listaProductos
+     */
     public ModeloTablaSensores(List<DatoSensor> listaProductos) {
         this.listaDatos = listaProductos;
     }
 
-    // Cambiar la lista de elementos que mostramos en caso de haber cambios en estos.
+    /**
+     * Cambiar la lista de elementos que mostramos en caso de haber cambios en estos.
+     * @param listaProductos La lista con los productos.
+     */
     public void setLista(List<DatoSensor> listaProductos) {
         this.listaDatos = listaProductos;
     }
 
+    /**
+     * Filtrar los datos de la tabla mediante un parametro.
+     * @param filtro Filtro que hay que realizar.
+     */
     public void filtrar(String filtro) {
         switch (filtro) {
             case "tipo":

@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class QuerySelector {
+/**
+ * Encargado de realizar las querys.
+ */
+public class QuerySelector implements DAO {
 
     /**
      * Conector con la base de datos.

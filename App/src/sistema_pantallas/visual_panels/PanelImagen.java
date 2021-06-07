@@ -5,10 +5,19 @@ import styles.ImageFactory;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Panel con imagenes.
+ */
 public class PanelImagen extends PanelGradiente {
-    private static final long serialVersionUID = 1L;
+
+    /**
+     * Imagen del panel.
+     */
     ImageIcon mainImage, iconImage;
 
+    /**
+     * Crear una nueva instancia de un panel con imagen.
+     */
     public PanelImagen() {
         super(new BorderLayout());
 

@@ -25,15 +25,28 @@ public class PanelPrincipal extends JScrollPane implements PropertyChangeListene
      */
     JScrollPane mainPanel;
 
+    /**
+     * Componente donde se muestran los mensajes de error.
+     */
     JFrame parentComponent;
 
+    /**
+     * El usuario con el que inicia sesion.
+     */
     Usuario user;
 
+    /**
+     * Conexion con la base de datos.
+     */
     QuerySelector conector;
 
     /**
      * Panel que contendra el menu de navegación y que servirá para contener las distinitas funciones
      * de la aplicación.
+     * @param parentComponent Panel donde se muestran los mensajes de error.
+     * @param mainPanel Panel principal de la aplicacion.
+     * @param user Usuario que ha iniciado sesion.
+     * @param conector Conexion con la base de datos.
      * @param width Ancho de la pantalla.
      */
     public PanelPrincipal(JFrame parentComponent, JScrollPane mainPanel, Usuario user, QuerySelector conector, int width) {
@@ -86,6 +99,12 @@ public class PanelPrincipal extends JScrollPane implements PropertyChangeListene
         return panel;
     }
 
+    /**
+     * Crear un boton a partir de una imagen.
+     * @param icon Imagen del boton.
+     * @param funcion Funcion que tendra el boton.
+     * @return Un nuevo boton.
+     */
     private JButton createButton(ImageIcon icon, String funcion) {
         JButton boton = new JButton();      // Crear boton
 
@@ -105,11 +124,19 @@ public class PanelPrincipal extends JScrollPane implements PropertyChangeListene
         return boton;
     }
 
+    /**
+     * Realizar un cambio de panel.
+     * @param panel Panel al que se quiere cambiar.
+     */
     public void changePanel(JScrollPane panel) {
         mainPanel.setViewportView(panel);
         this.repaint();
     }
 
+    /**
+     * Repintar el panel cuando ocurre un evento.
+     * @param evt Evento que ha ocurrido.
+     */
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         this.repaint();

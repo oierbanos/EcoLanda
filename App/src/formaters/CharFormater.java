@@ -1,5 +1,8 @@
 package formaters;
 
+/**
+ * Formatear arrays de caracteres.
+ */
 public class CharFormater {
 
     /**

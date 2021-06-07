@@ -19,15 +19,39 @@ import java.util.Objects;
 
 public class PanelStock  extends JScrollPane {
 
+    /**
+     * Seleccion de filtros.
+     */
     JComboBox<String> tipo, cantidadPlantado, cantidadRecogido, fechaPlantado, fechaRecogido;
+    /**
+     * Panel donde se muestran los mensajes de error.
+     */
     JFrame parentComponent;
 
+    /**
+     * Tabla con el contenido.
+     */
     JTable tabla;
+    /**
+     * Gestor del stock.
+     */
     GestorStock gestor;
+    /**
+     * Modelo de la tabla que gestiona el contenido que se muestra.
+     */
     ModeloTablaStock modeloTabla;
 
+    /**
+     * Una lista de los lotes de productos.
+     */
     List<LoteProducto> loteProductos;
 
+    /**
+     * Una nueva instancia de un panel de stock.
+     * @param parentComponent Panel donde se muestran los mensajes de error.
+     * @param huerto_id Numero identificador del huerto.
+     * @param conector Conector con la base de datos.
+     */
     public PanelStock(JFrame parentComponent, int huerto_id, QuerySelector conector) {
         super(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.getVerticalScrollBar().setUnitIncrement(20);
@@ -43,6 +67,10 @@ public class PanelStock  extends JScrollPane {
         this.setViewportView(crearPanelVentana());
     }
 
+    /**
+     * Crear un panel principal de la ventana.
+     * @return Un nuevo panel principal.
+     */
     private Component crearPanelVentana() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -53,6 +81,10 @@ public class PanelStock  extends JScrollPane {
         return panel;
     }
 
+    /**
+     * Crear un nuevo panel de display.
+     * @return Un nuevo panel de display.
+     */
     private Component crearPanelDisplay() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -63,6 +95,10 @@ public class PanelStock  extends JScrollPane {
         return panel;
     }
 
+    /**
+     * Crear el panel para la tabla.
+     * @return Un nuevo panel para la tabla.
+     */
     private Component crearPanelTabla() {
         JScrollPane panel = new JScrollPane(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -78,6 +114,7 @@ public class PanelStock  extends JScrollPane {
 
             @Override
             public void mouseClicked(MouseEvent e) {
+                // Detectar en que columna se ha pulsado para filtrar mediante ese parametro.
                 switch (tabla.columnAtPoint(e.getPoint())) {
                     case 0: modeloTabla.filtrar("tipo"); break;
                     case 1: modeloTabla.filtrar("cantidadP"); break;
@@ -94,6 +131,10 @@ public class PanelStock  extends JScrollPane {
         return panel;
     }
 
+    /**
+     * Crear un nuevo panel con los filtros.
+     * @return Un nuevo panel con los filtros.
+     */
     private Component crearPanelFiltros() {
         JPanel panel = new JPanel(new GridLayout(1, 4));
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);
@@ -124,28 +165,37 @@ public class PanelStock  extends JScrollPane {
         panel.add(fechaRecogido);
 
         tipo.addActionListener(e -> {
+            // Filtrar al seleccionar una de las opciones.
             modeloTabla.setLista(gestor.filtrar("tipo", (String) Objects.requireNonNull(tipo.getSelectedItem())));
             tabla.repaint();
         });
         cantidadPlantado.addActionListener(e -> {
+            // Filtrar al seleccionar una de las opciones.
             modeloTabla.setLista(gestor.filtrar("cantidadP", (String) Objects.requireNonNull(cantidadPlantado.getSelectedItem())));
             tabla.repaint();
         });;
         cantidadRecogido.addActionListener(e -> {
+            // Filtrar al seleccionar una de las opciones.
             modeloTabla.setLista(gestor.filtrar("cantidadR", (String) Objects.requireNonNull(cantidadRecogido.getSelectedItem())));
             tabla.repaint();
         });
         fechaPlantado.addActionListener(e -> {
+            // Filtrar al seleccionar una de las opciones.
             modeloTabla.setLista(gestor.filtrar("fechaP", (String) Objects.requireNonNull(fechaPlantado.getSelectedItem())));
             tabla.repaint();
         });
         fechaRecogido.addActionListener(e -> {
+            // Filtrar al seleccionar una de las opciones.
             modeloTabla.setLista(gestor.filtrar("fechaR", (String) Objects.requireNonNull(fechaRecogido.getSelectedItem())));
             tabla.repaint();
         });
         return panel;
     }
 
+    /**
+     * Crear un nuevo panel con los botones.
+     * @return Un nuevo panel con el boton.
+     */
     private Component crearPanelBoton() {
         JPanel panel = new JPanel();
         panel.setBackground(ColorFactory.BACKGROUND_COLOR);

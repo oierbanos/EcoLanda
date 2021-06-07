@@ -2,6 +2,9 @@ package external_conexion.file_management;
 
 import java.io.*;
 
+/**
+ * Lector de ficheros.
+ */
 public class FileReader {
 
     /**

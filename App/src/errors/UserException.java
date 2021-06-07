@@ -1,5 +1,8 @@
 package errors;
 
+/**
+ * Excepcion de usuario.
+ */
 public class UserException extends Exception {
 
     /**

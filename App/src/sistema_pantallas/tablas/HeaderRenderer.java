@@ -10,9 +10,15 @@ import java.awt.*;
 
 public class HeaderRenderer implements TableCellRenderer {
 
+    /**
+     * Renderer de la tabla a la que pertenece.
+     */
     DefaultTableCellRenderer renderer;
 
-    // Al inicializar ponemos los titulos en el centro.
+    /**
+     * Se inicializa una nueva instancia del header renderer y se alinean los elementos al centro.
+     * @param table Tabla de la que este elemento va a ser titulo.
+     */
     public HeaderRenderer(JTable table) {
         renderer = (DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer();
         renderer.setHorizontalAlignment(JLabel.CENTER);

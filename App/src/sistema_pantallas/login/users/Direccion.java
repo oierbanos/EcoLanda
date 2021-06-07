@@ -1,5 +1,8 @@
 package sistema_pantallas.login.users;
 
+/**
+ * Direccion fisica.
+ */
 public class Direccion {
 
     /**
