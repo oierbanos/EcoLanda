@@ -26,6 +26,6 @@ SELECT @media;/*
 +---------+*/
 
 /* VIEW USUARIOS*/
-CREATE VIEW usuarios.v AS SELECT nombre, apellido FROM usuario;
+CREATE VIEW usuarios_vista AS SELECT nombre, apellido FROM usuario;
 /*VIEW HUERTOS*/
-CREATE VIEW huertos.v AS SELECT * FROM huerto;
+CREATE VIEW huertos_vista AS SELECT id,eco FROM huerto;
