@@ -21,7 +21,7 @@ public class Conexion {
 	/**
 	 * Puerto de sockets que escucha a los clientes de sockets.
 	 */
-    SerialPort serialport;
+    SerialPort serialport = null;
 	/**
 	 * Numero de puerto.
 	 */
@@ -104,18 +104,25 @@ public class Conexion {
 		}
 	}
 
+	private boolean getEstadoPuertoSerial() {
+		return serialport != null;
+	}
+
 	public static void main(String[] args) throws IOException {
 		ServerSocket server = new ServerSocket(8888); // Poner en marcha el servidor de sockets.
 		Conexion conexion = new Conexion();
 
 		conexion.conectar(); // Conectar Serial
-		new KeyboardListener().start();
 
-		//noinspection InfiniteLoopStatement
-		while (true) {
-			SocketThread thread = new SocketThread(server.accept(), conexion.comunicacion);
-			conexion.comunicacion.setPropertyChangeListener(thread);
-			thread.start();
+		if (conexion.getEstadoPuertoSerial()) {
+			new KeyboardListener().start();
+			
+			//noinspection InfiniteLoopStatement
+			while (true) {
+				SocketThread thread = new SocketThread(server.accept(), conexion.comunicacion);
+				conexion.comunicacion.setPropertyChangeListener(thread);
+				thread.start();
+			}
 		}
 	}
 }
