@@ -46,6 +46,9 @@ public class SocketThread extends Thread implements PropertyChangeListener {
                 if (line.equals("Actualizar sensores")) {
                     conector.firePropertyChange("Actualizar", null, null);
                 }
+                else if (line.equals("Peso")) {
+                    conector.firePropertyChange("GetPeso", null, null);
+                }
             }
             catch (IOException e) {
                 e.printStackTrace();

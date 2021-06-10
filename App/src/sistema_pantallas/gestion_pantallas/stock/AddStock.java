@@ -1,16 +1,19 @@
 package sistema_pantallas.gestion_pantallas.stock;
 
+import external_conexion.sockets.ClientSocket;
 import styles.ColorFactory;
 import styles.FontFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.SQLException;
 
 /**
  * Añadir stock a la base de datos.
  */
-public class AddStock extends JDialog {
+public class AddStock extends JDialog implements PropertyChangeListener {
 
     /**
      * Ancho de pantalla predefinido.
@@ -140,6 +143,9 @@ public class AddStock extends JDialog {
 
         JLabel label = new JLabel("Plantada");
         cantidad_plantada = new JTextField();
+
+        // Solicitar el peso.
+        new ClientSocket("Peso", super.getParent(), this, false).start();
 
         crearComponentes(label, cantidad_plantada);
         panel.add(cantidad_plantada, BorderLayout.CENTER);
@@ -279,5 +285,12 @@ public class AddStock extends JDialog {
         boton.setFont(FontFactory.NORMAL_BUTTON);
 
         return boton;
+    }
+
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        // Poner el valor en el panel.
+        cantidad_recogida.setText((String) evt.getNewValue());
+        this.repaint();
     }
 }
