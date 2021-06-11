@@ -1,12 +1,13 @@
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <stm32f407xx.h>
 #include <string.h>
 #include "ourCom.h"
 #include "ourGpio.h"
 #include "hx711.h"
 
-#define MAX_BUFFER 6
+#define MAX_BUFFER 9
 
 void initSysTick(uint32_t ms);
 void enviarPeso (HX711 sensor);
@@ -15,10 +16,8 @@ float toGrams (int v);
 
 // ENVIAR DATOS
 char BUFFER[MAX_BUFFER];
-
 // CONTADOR SYSTICK
 int contTemp = 0;
-
 // DATOS SENSORES
 volatile float peso, temp;
 
@@ -43,7 +42,7 @@ int main(void)
 	enablePA0interrupt();	// Permitir realizar excepciones mediante PA0.
 	
 	// Enviar un mensaje en blanco. Evita que TeraTerm borre el primer caracter enviado.
-	printMsgToUSART6(" ", 1);
+	//printMsgToUSART6(" ", 1);
 
 	while(1) {
 		if (solicitudPeso) {
@@ -77,13 +76,11 @@ void enviarTemperatura (void){
 	// Leer valor de la conversion y convertirlo a temperatura.
 	uint32_t temp_balioa = ADC1->DR;
 	temp = (temp_balioa *330.0)/1023.0;
-
 	// Limpiar el buffer (poner todo a 0).
 	memset(BUFFER,'0',sizeof(BUFFER));
-	
 	sprintf(BUFFER,"t%.2f\n", temp);	// Añadir al buffer la cabecera 't' el balor y \n.
 
-	printMsgToUSART6(BUFFER, sizeof(BUFFER));		// Enviar valor temperatura.
+	printMsgToUSART6(BUFFER, strlen(BUFFER));		// Enviar valor temperatura.
 
 	// Indicar que la solicitud ha sido cubierta.
 	solicitudTemperatura = 0;
@@ -108,9 +105,9 @@ void enviarPeso (HX711 sensor){
 
 	// Limpiar el buffer
 	memset(BUFFER,'0',sizeof(BUFFER));
+	sprintf(BUFFER,"p%.0f\n", peso);	// Añadir al buffer la cabecera 't' el balor y \n.
 	
-	sprintf(BUFFER,"p%.2f\n", peso);	// Añadir al buffer la cabecera 't' el balor y \n.
-	printMsgToUSART6(BUFFER,sizeof(BUFFER)); 
+	printMsgToUSART6(BUFFER,strlen(BUFFER)); 
 	
 	solicitudPeso = 0;
 }
@@ -125,7 +122,7 @@ void enviarPeso (HX711 sensor){
 * return: Valor del voltage transformado a gramos.
 */
 float toGrams (int v) {
-    return ((v*199)/47950)-271;
+    return ((v*199)/47950)-270;
 }
 
 /*
