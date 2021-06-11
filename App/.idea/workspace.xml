@@ -3,57 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="008930d0-12d2-4dde-9662-7dd99ebd467d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/Elementos/DatoSensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/Elementos/DatoSensor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/Elementos/LoteProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/Elementos/LoteProducto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/Elementos/Time.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/Elementos/Time.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/Elementos/TipoProducto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/Elementos/TipoProducto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/app_launcher/EcoLanda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/app_launcher/EcoLanda.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/errors/TimeException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/errors/TimeException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/errors/UserException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/errors/UserException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/external_conexion/database/DatabaseConector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/external_conexion/database/DatabaseConector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/external_conexion/database/QuerySelector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/external_conexion/database/QuerySelector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/external_conexion/file_management/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/external_conexion/file_management/FileReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/external_conexion/sockets/ClientSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/external_conexion/sockets/ClientSocket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/formaters/CharFormater.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/formaters/CharFormater.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/gestion_pantallas/Gestor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/gestion_pantallas/Gestor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/gestion_pantallas/sensores/GestorSensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/gestion_pantallas/sensores/GestorSensor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/gestion_pantallas/stock/AddStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/gestion_pantallas/stock/AddStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/gestion_pantallas/stock/GestorStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/gestion_pantallas/stock/GestorStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/login/ControladorLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/login/ControladorLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/login/PantallaLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/login/PantallaLogin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/login/users/Direccion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/login/users/Direccion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/login/users/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/login/users/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/panel_inicial/BarraMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/panel_inicial/BarraMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/panel_inicial/PanelPrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/panel_inicial/PanelPrincipal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelHuerto$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelHuerto$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelHuerto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelHuerto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelInicio$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelInicio$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelInicio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelInicio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelSensores$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelSensores$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelSensores.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelSensores.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelStock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelStock$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/PanelUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/componentes/AddImagen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/componentes/AddImagen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/componentes/SelectorTipos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/pantallas_acciones/componentes/SelectorTipos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/HeaderRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/HeaderRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/ModeloColumnas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/ModeloColumnas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/tabla_sensor/ModeloTablaSensores.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/tabla_sensor/ModeloTablaSensores.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/tabla_sensor/RendererSensor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/tabla_sensor/RendererSensor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/tabla_stock/ModeloTablaStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/tabla_stock/ModeloTablaStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/tabla_stock/RendererStock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/tablas/tabla_stock/RendererStock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/visual_panels/PanelGradiente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/visual_panels/PanelGradiente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/sistema_pantallas/visual_panels/PanelImagen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/sistema_pantallas/visual_panels/PanelImagen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/styles/ColorFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/styles/ColorFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/styles/FontFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/styles/FontFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/App/styles/RoundedBorder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/App/styles/RoundedBorder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/stock/AddStock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sistema_pantallas/gestion_pantallas/stock/AddStock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/ComunicacionPlaca.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/ComunicacionPlaca.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/Conexion$KeyboardListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/Conexion$KeyboardListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/Conexion.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/Conexion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/SocketThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/out/production/ComunicacionOlimex/SocketThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Comunicacion/src/ComunicacionPlaca.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/src/ComunicacionPlaca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Comunicacion/src/SocketThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Comunicacion/src/SocketThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +82,7 @@
       <workItem from="1623247380288" duration="2387000" />
       <workItem from="1623325350267" duration="600000" />
       <workItem from="1623335965589" duration="3210000" />
+      <workItem from="1623413601220" duration="612000" />
     </task>
     <servers />
   </component>

@@ -114,7 +114,14 @@ public class ComunicacionPlaca  implements SerialPortDataListener, PropertyChang
 		else if (instruction.equals("GetPeso")) {
 			enviarMensaje("p");
 			while (!mensajeCompleto);
-			conector.firePropertyChange(instruction, null, transformToString(bufferDeMensaje).substring(1));
+
+			mensaje = transformToString(bufferDeMensaje);
+			if (mensaje.startsWith("p")) {
+				conector.firePropertyChange(instruction, null, mensaje.substring(1));
+			}
+			else {
+				conector.firePropertyChange(instruction, null, "0");
+			}
 		}
 	}
 }
