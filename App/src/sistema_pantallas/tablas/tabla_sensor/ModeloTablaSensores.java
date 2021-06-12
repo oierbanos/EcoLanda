@@ -15,7 +15,7 @@ public class ModeloTablaSensores extends AbstractTableModel {
     /**
      * Nombre de las columnas.
      */
-    private static final String[] NOMBRE_COLUMNAS = { "Tipo", "Valor", "Fecha" };
+    private static final String[] NOMBRE_COLUMNAS = { "Tipo", "Valor", "Hora" };
 
     /**
      * Lista con los datos.

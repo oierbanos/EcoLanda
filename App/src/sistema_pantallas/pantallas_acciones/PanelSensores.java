@@ -157,7 +157,7 @@ public class PanelSensores  extends JScrollPane implements PropertyChangeListene
         tabla = new JTable(modeloTabla,
                 new ModeloColumnas(
                         new RendererSensor(),
-                        new String[]{ "Tipo", "Valor", "Fecha" }
+                        new String[]{ "Tipo", "Valor", "Hora" }
                 ));
         tabla.getTableHeader().setDefaultRenderer(new HeaderRenderer(tabla));
 
