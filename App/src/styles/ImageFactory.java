@@ -39,6 +39,9 @@ public class ImageFactory {
     public static final String IMAGEN_HUMEDAD = "Media/Img/humedad.png";
     public static final String IMAGEN_BUSCAR = "Media/Img/buscar.png";
 
+    /** Panel usuarios **/
+    public static final  String IMAGE_USER = "Media/Img/user_panel.png";
+
     /**
      * Generar un ImageIcon a partir de una ruta.
      * @param route Ruta de la imagen.
