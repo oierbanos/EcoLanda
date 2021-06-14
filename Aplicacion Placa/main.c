@@ -42,7 +42,8 @@ int main(void)
 	enablePA0interrupt();	// Permitir realizar excepciones mediante PA0.
 	
 	// Enviar un mensaje en blanco. Evita que TeraTerm borre el primer caracter enviado.
-	//printMsgToUSART6(" ", 1);
+	// En el caso de utilizar TeraTerm descomentar la linea de debajo.
+	// printMsgToUSART6(" ", 1);
 
 	while(1) {
 		if (solicitudPeso) {
